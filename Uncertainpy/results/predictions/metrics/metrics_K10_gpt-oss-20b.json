@@ -1,0 +1,8 @@
+{
+  "K": 10,
+  "model": "gpt-oss:20b",
+  "llm_accuracy": 0.7272727272727273,
+  "llm_f1": 0.8235294117647058,
+  "total_claims": 557,
+  "valid_claims_llm": 11
+}

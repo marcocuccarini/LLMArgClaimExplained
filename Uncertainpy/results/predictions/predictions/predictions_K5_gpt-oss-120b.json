@@ -1,0 +1,128 @@
+[
+  {
+    "index": 0,
+    "claim": "A mother revealed to her child in a letter after her death that she had just one eye because she had donated the other to him.",
+    "prediction": "NO_EVIDENCE",
+    "ground_truth": "FALSE",
+    "model": "gpt-oss:120b",
+    "K": 5,
+    "graph_status": "not_generated"
+  },
+  {
+    "index": 1,
+    "claim": "Roche's schizophrenia drug misses goal in two late-stage trials.",
+    "prediction": "TRUE",
+    "ground_truth": "TRUE",
+    "model": "gpt-oss:120b",
+    "K": 5,
+    "graph_status": "generated"
+  },
+  {
+    "index": 5,
+    "claim": "Lawmakers consider spending, saving $128.5 million surplus.",
+    "prediction": "NO_EVIDENCE",
+    "ground_truth": "TRUE",
+    "model": "gpt-oss:120b",
+    "K": 5,
+    "graph_status": "not_generated"
+  },
+  {
+    "index": 6,
+    "claim": "Public warned of possible measles exposure in Pennsylvania.",
+    "prediction": "NO_EVIDENCE",
+    "ground_truth": "TRUE",
+    "model": "gpt-oss:120b",
+    "K": 5,
+    "graph_status": "not_generated"
+  },
+  {
+    "index": 7,
+    "claim": "\u201cWhile California is dying \u2026 Gavin (Newsom) is vacationing in Stevensville, MT!\u201d",
+    "prediction": "NO_EVIDENCE",
+    "ground_truth": "FALSE",
+    "model": "gpt-oss:120b",
+    "K": 5,
+    "graph_status": "not_generated"
+  },
+  {
+    "index": 8,
+    "claim": "Britain backs GSK's gene therapy for 'bubble boy' syndrome.",
+    "prediction": "NO_EVIDENCE",
+    "ground_truth": "TRUE",
+    "model": "gpt-oss:120b",
+    "K": 5,
+    "graph_status": "not_generated"
+  },
+  {
+    "index": 9,
+    "claim": "Queen Elizabeth II wore a Burmese Ruby Tiara as a slight against U.S. President Donald Trump.",
+    "prediction": "NO_EVIDENCE",
+    "ground_truth": "FALSE",
+    "model": "gpt-oss:120b",
+    "K": 5,
+    "graph_status": "not_generated"
+  },
+  {
+    "index": 12,
+    "claim": "Evacuation plan 'out the window' when fire hit California town.",
+    "prediction": "TRUE",
+    "ground_truth": "TRUE",
+    "model": "gpt-oss:120b",
+    "K": 5,
+    "graph_status": "generated"
+  },
+  {
+    "index": 13,
+    "claim": "People can fly with dogs, pot-bellied pigs, turkeys, monkeys, and miniature horses if they claim that their pets are emotional support animals.",
+    "prediction": "TRUE",
+    "ground_truth": "TRUE",
+    "model": "gpt-oss:120b",
+    "K": 5,
+    "graph_status": "generated"
+  },
+  {
+    "index": 14,
+    "claim": "Gabon president fires VP, forests minister over hardwood scandal.",
+    "prediction": "NO_EVIDENCE",
+    "ground_truth": "TRUE",
+    "model": "gpt-oss:120b",
+    "K": 5,
+    "graph_status": "not_generated"
+  },
+  {
+    "index": 15,
+    "claim": "Prince Harry joins Elton John to launch HIV campaign targeting men.",
+    "prediction": "TRUE",
+    "ground_truth": "TRUE",
+    "model": "gpt-oss:120b",
+    "K": 5,
+    "graph_status": "generated"
+  },
+  {
+    "index": 17,
+    "claim": "Photographs show a boy having his arm crushed under a truck as a punishment for stealing bread.",
+    "prediction": "FALSE",
+    "ground_truth": "FALSE",
+    "model": "gpt-oss:120b",
+    "K": 5,
+    "graph_status": "generated"
+  },
+  {
+    "index": 18,
+    "claim": "Hospitals plan for 'COVID cabanas,' conference rooms to house patients.",
+    "prediction": "NO_EVIDENCE",
+    "ground_truth": "TRUE",
+    "model": "gpt-oss:120b",
+    "K": 5,
+    "graph_status": "not_generated"
+  },
+  {
+    "index": 19,
+    "claim": " A forwarded email that blames President Obama   for delays in the rescue of Richard Phillips, the captain of the ship   named the Maersk Alabama, which was taken over by pirates off the coast   of the African country of Somalia. It claims that Obama delayed the   deployment of Navy Seals by 36 hours and limited the rules of engagement   so the rescuers could not act unless Captain Phillips\u2019 life was imminent   danger.      ",
+    "prediction": "FALSE",
+    "ground_truth": "FALSE",
+    "model": "gpt-oss:120b",
+    "K": 5,
+    "graph_status": "generated"
+  }
+]

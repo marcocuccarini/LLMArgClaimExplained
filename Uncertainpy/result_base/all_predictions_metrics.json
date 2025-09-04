@@ -1,0 +1,402 @@
+[
+    {
+        "file": "results_baseline_retriever_k5_gemma3-12b.json",
+        "model": "gemma3:12b",
+        "K": 5,
+        "prompt": "baseline_retriever",
+        "accuracy": 0.8438061041292639,
+        "f1_score": 0.8822733423545331
+    },
+    {
+        "file": "results_baseline_ic_ralm_k10_gemma3-270m.json",
+        "model": "gemma3:270m",
+        "K": 10,
+        "prompt": "baseline_ic_ralm",
+        "accuracy": 0.6714542190305206,
+        "f1_score": 0.80343716433942
+    },
+    {
+        "file": "results_baseline_retriever_k5_gemma3-270m.json",
+        "model": "gemma3:270m",
+        "K": 5,
+        "prompt": "baseline_retriever",
+        "accuracy": 0.3303411131059246,
+        "f1_score": 0.005333333333333333
+    },
+    {
+        "file": "results_baseline_exp_k10_gemma3-4b.json",
+        "model": "gemma3:4b",
+        "K": 10,
+        "prompt": "baseline_exp",
+        "accuracy": 0.49730700179533216,
+        "f1_score": 0.5692307692307692
+    },
+    {
+        "file": "results_baseline_cot_k10_gemma3-1b.json",
+        "model": "gemma3:1b",
+        "K": 10,
+        "prompt": "baseline_cot",
+        "accuracy": 0.4703770197486535,
+        "f1_score": 0.5368916797488226
+    },
+    {
+        "file": "results_baseline_ic_ralm_k5_gemma3-27b.json",
+        "model": "gemma3:27b",
+        "K": 5,
+        "prompt": "baseline_ic_ralm",
+        "accuracy": 0.7307001795332136,
+        "f1_score": 0.7619047619047619
+    },
+    {
+        "file": "results_baseline_ic_ralm_k5_gemma3-270m.json",
+        "model": "gemma3:270m",
+        "K": 5,
+        "prompt": "baseline_ic_ralm",
+        "accuracy": 0.6732495511669659,
+        "f1_score": 0.8043010752688172
+    },
+    {
+        "file": "results_baseline_ic_ralm_k5_gemma3-1b.json",
+        "model": "gemma3:1b",
+        "K": 5,
+        "prompt": "baseline_ic_ralm",
+        "accuracy": 0.6570915619389587,
+        "f1_score": 0.7328671328671329
+    },
+    {
+        "file": "results_baseline_ic_ralm_p_k5_gemma3-27b.json",
+        "model": "gemma3:27b",
+        "K": 5,
+        "prompt": "baseline_ic_ralm_p",
+        "accuracy": 0.7199281867145422,
+        "f1_score": 0.7507987220447284
+    },
+    {
+        "file": "results_baseline_ic_ralm_p_k10_gemma3-270m.json",
+        "model": "gemma3:270m",
+        "K": 10,
+        "prompt": "baseline_ic_ralm_p",
+        "accuracy": 0.6714542190305206,
+        "f1_score": 0.80343716433942
+    },
+    {
+        "file": "results_baseline_exp_k5_gemma3-12b.json",
+        "model": "gemma3:12b",
+        "K": 5,
+        "prompt": "baseline_exp",
+        "accuracy": 0.4955116696588869,
+        "f1_score": 0.5602503912363067
+    },
+    {
+        "file": "results_baseline_exp_k10_gemma3-12b.json",
+        "model": "gemma3:12b",
+        "K": 10,
+        "prompt": "baseline_exp",
+        "accuracy": 0.5008976660682226,
+        "f1_score": 0.5573248407643312
+    },
+    {
+        "file": "results_baseline_exp_k5_gemma3-4b.json",
+        "model": "gemma3:4b",
+        "K": 5,
+        "prompt": "baseline_exp",
+        "accuracy": 0.5008976660682226,
+        "f1_score": 0.565625
+    },
+    {
+        "file": "results_baseline_ic_ralm_p_k10_gemma3-27b.json",
+        "model": "gemma3:27b",
+        "K": 10,
+        "prompt": "baseline_ic_ralm_p",
+        "accuracy": 0.7271095152603232,
+        "f1_score": 0.7579617834394905
+    },
+    {
+        "file": "results_baseline_cot_k5_gemma3-4b.json",
+        "model": "gemma3:4b",
+        "K": 5,
+        "prompt": "baseline_cot",
+        "accuracy": 0.49730700179533216,
+        "f1_score": 0.5638629283489096
+    },
+    {
+        "file": "results_baseline_retriever_k10_gemma3-4b.json",
+        "model": "gemma3:4b",
+        "K": 10,
+        "prompt": "baseline_retriever",
+        "accuracy": 0.7809694793536804,
+        "f1_score": 0.8324175824175825
+    },
+    {
+        "file": "results_baseline_retriever_k10_gemma3-12b.json",
+        "model": "gemma3:12b",
+        "K": 10,
+        "prompt": "baseline_retriever",
+        "accuracy": 0.8438061041292639,
+        "f1_score": 0.8822733423545331
+    },
+    {
+        "file": "results_baseline_ic_ralm_k5_gemma3-4b.json",
+        "model": "gemma3:4b",
+        "K": 5,
+        "prompt": "baseline_ic_ralm",
+        "accuracy": 0.7271095152603232,
+        "f1_score": 0.7809798270893372
+    },
+    {
+        "file": "results_baseline_cot_k5_gemma3-12b.json",
+        "model": "gemma3:12b",
+        "K": 5,
+        "prompt": "baseline_cot",
+        "accuracy": 0.46858168761220825,
+        "f1_score": 0.5331230283911672
+    },
+    {
+        "file": "results_baseline_retriever_k10_gemma3-1b.json",
+        "model": "gemma3:1b",
+        "K": 10,
+        "prompt": "baseline_retriever",
+        "accuracy": 0.5493716337522442,
+        "f1_score": 0.5411334552102377
+    },
+    {
+        "file": "results_baseline_cot_k5_gemma3-1b.json",
+        "model": "gemma3:1b",
+        "K": 5,
+        "prompt": "baseline_cot",
+        "accuracy": 0.5098743267504489,
+        "f1_score": 0.5806451612903226
+    },
+    {
+        "file": "results_baseline_exp_k5_gemma3-1b.json",
+        "model": "gemma3:1b",
+        "K": 5,
+        "prompt": "baseline_exp",
+        "accuracy": 0.4883303411131059,
+        "f1_score": 0.5622119815668203
+    },
+    {
+        "file": "results_baseline_exp_k5_gemma3-270m.json",
+        "model": "gemma3:270m",
+        "K": 5,
+        "prompt": "baseline_exp",
+        "accuracy": 0.5062836624775583,
+        "f1_score": 0.5814307458143074
+    },
+    {
+        "file": "results_baseline_ic_ralm_k10_gemma3-12b.json",
+        "model": "gemma3:12b",
+        "K": 10,
+        "prompt": "baseline_ic_ralm",
+        "accuracy": 0.7307001795332136,
+        "f1_score": 0.7685185185185185
+    },
+    {
+        "file": "results_baseline_cot_k10_gemma3-27b.json",
+        "model": "gemma3:27b",
+        "K": 10,
+        "prompt": "baseline_cot",
+        "accuracy": 0.4649910233393178,
+        "f1_score": 0.5372670807453416
+    },
+    {
+        "file": "results_baseline_cot_k10_gemma3-4b.json",
+        "model": "gemma3:4b",
+        "K": 10,
+        "prompt": "baseline_cot",
+        "accuracy": 0.4506283662477558,
+        "f1_score": 0.5173501577287066
+    },
+    {
+        "file": "results_baseline_exp_k10_gemma3-1b.json",
+        "model": "gemma3:1b",
+        "K": 10,
+        "prompt": "baseline_exp",
+        "accuracy": 0.518850987432675,
+        "f1_score": 0.595166163141994
+    },
+    {
+        "file": "results_baseline_retriever_k10_gemma3-27b.json",
+        "model": "gemma3:27b",
+        "K": 10,
+        "prompt": "baseline_retriever",
+        "accuracy": 0.8563734290843806,
+        "f1_score": 0.889196675900277
+    },
+    {
+        "file": "results_baseline_cot_k5_gemma3-27b.json",
+        "model": "gemma3:27b",
+        "K": 5,
+        "prompt": "baseline_cot",
+        "accuracy": 0.49730700179533216,
+        "f1_score": 0.5652173913043478
+    },
+    {
+        "file": "results_baseline_ic_ralm_k10_gemma3-1b.json",
+        "model": "gemma3:1b",
+        "K": 10,
+        "prompt": "baseline_ic_ralm",
+        "accuracy": 0.6014362657091562,
+        "f1_score": 0.6735294117647059
+    },
+    {
+        "file": "results_baseline_ic_ralm_p_k5_gemma3-270m.json",
+        "model": "gemma3:270m",
+        "K": 5,
+        "prompt": "baseline_ic_ralm_p",
+        "accuracy": 0.6768402154398564,
+        "f1_score": 0.8060344827586207
+    },
+    {
+        "file": "results_baseline_retriever_k10_gemma3-270m.json",
+        "model": "gemma3:270m",
+        "K": 10,
+        "prompt": "baseline_retriever",
+        "accuracy": 0.3303411131059246,
+        "f1_score": 0.005333333333333333
+    },
+    {
+        "file": "results_baseline_retriever_k5_gemma3-4b.json",
+        "model": "gemma3:4b",
+        "K": 5,
+        "prompt": "baseline_retriever",
+        "accuracy": 0.7809694793536804,
+        "f1_score": 0.8324175824175825
+    },
+    {
+        "file": "results_baseline_ic_ralm_k10_gemma3-27b.json",
+        "model": "gemma3:27b",
+        "K": 10,
+        "prompt": "baseline_ic_ralm",
+        "accuracy": 0.7145421903052065,
+        "f1_score": 0.7431340872374798
+    },
+    {
+        "file": "results_baseline_cot_k10_gemma3-12b.json",
+        "model": "gemma3:12b",
+        "K": 10,
+        "prompt": "baseline_cot",
+        "accuracy": 0.5044883303411131,
+        "f1_score": 0.5605095541401274
+    },
+    {
+        "file": "results_baseline_cot_k10_gemma3-270m.json",
+        "model": "gemma3:270m",
+        "K": 10,
+        "prompt": "baseline_cot",
+        "accuracy": 0.4649910233393178,
+        "f1_score": 0.547112462006079
+    },
+    {
+        "file": "results_baseline_ic_ralm_p_k5_gemma3-1b.json",
+        "model": "gemma3:1b",
+        "K": 5,
+        "prompt": "baseline_ic_ralm_p",
+        "accuracy": 0.6768402154398564,
+        "f1_score": 0.7547683923705722
+    },
+    {
+        "file": "results_baseline_ic_ralm_p_k10_gemma3-1b.json",
+        "model": "gemma3:1b",
+        "K": 10,
+        "prompt": "baseline_ic_ralm_p",
+        "accuracy": 0.5439856373429084,
+        "f1_score": 0.5889967637540453
+    },
+    {
+        "file": "results_baseline_retriever_k5_gemma3-27b.json",
+        "model": "gemma3:27b",
+        "K": 5,
+        "prompt": "baseline_retriever",
+        "accuracy": 0.8563734290843806,
+        "f1_score": 0.889196675900277
+    },
+    {
+        "file": "results_baseline_retriever_k5_gemma3-1b.json",
+        "model": "gemma3:1b",
+        "K": 5,
+        "prompt": "baseline_retriever",
+        "accuracy": 0.5493716337522442,
+        "f1_score": 0.5411334552102377
+    },
+    {
+        "file": "results_baseline_ic_ralm_p_k10_gemma3-4b.json",
+        "model": "gemma3:4b",
+        "K": 10,
+        "prompt": "baseline_ic_ralm_p",
+        "accuracy": 0.7019748653500898,
+        "f1_score": 0.746177370030581
+    },
+    {
+        "file": "results_baseline_ic_ralm_p_k5_gemma3-4b.json",
+        "model": "gemma3:4b",
+        "K": 5,
+        "prompt": "baseline_ic_ralm_p",
+        "accuracy": 0.7145421903052065,
+        "f1_score": 0.7678832116788321
+    },
+    {
+        "file": "results_baseline_ic_ralm_k5_gemma3-12b.json",
+        "model": "gemma3:12b",
+        "K": 5,
+        "prompt": "baseline_ic_ralm",
+        "accuracy": 0.6947935368043088,
+        "f1_score": 0.7301587301587301
+    },
+    {
+        "file": "results_baseline_ic_ralm_k10_gemma3-4b.json",
+        "model": "gemma3:4b",
+        "K": 10,
+        "prompt": "baseline_ic_ralm",
+        "accuracy": 0.696588868940754,
+        "f1_score": 0.7435508345978755
+    },
+    {
+        "file": "results_baseline_cot_k5_gemma3-270m.json",
+        "model": "gemma3:270m",
+        "K": 5,
+        "prompt": "baseline_cot",
+        "accuracy": 0.526032315978456,
+        "f1_score": 0.6
+    },
+    {
+        "file": "results_baseline_ic_ralm_p_k5_gemma3-12b.json",
+        "model": "gemma3:12b",
+        "K": 5,
+        "prompt": "baseline_ic_ralm_p",
+        "accuracy": 0.7127468581687613,
+        "f1_score": 0.7468354430379747
+    },
+    {
+        "file": "results_baseline_exp_k5_gemma3-27b.json",
+        "model": "gemma3:27b",
+        "K": 5,
+        "prompt": "baseline_exp",
+        "accuracy": 0.46858168761220825,
+        "f1_score": 0.5316455696202531
+    },
+    {
+        "file": "results_baseline_exp_k10_gemma3-27b.json",
+        "model": "gemma3:27b",
+        "K": 10,
+        "prompt": "baseline_exp",
+        "accuracy": 0.5368043087971275,
+        "f1_score": 0.6114457831325302
+    },
+    {
+        "file": "results_baseline_ic_ralm_p_k10_gemma3-12b.json",
+        "model": "gemma3:12b",
+        "K": 10,
+        "prompt": "baseline_ic_ralm_p",
+        "accuracy": 0.7432675044883303,
+        "f1_score": 0.7803379416282642
+    },
+    {
+        "file": "results_baseline_exp_k10_gemma3-270m.json",
+        "model": "gemma3:270m",
+        "K": 10,
+        "prompt": "baseline_exp",
+        "accuracy": 0.4883303411131059,
+        "f1_score": 0.5635528330781011
+    }
+]

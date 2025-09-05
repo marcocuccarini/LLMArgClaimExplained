@@ -1,0 +1,8 @@
+[
+  {
+    "model": "gpt-oss:20b",
+    "K": 5,
+    "accuracy": 0.0,
+    "f1_score": 0.0
+  }
+]

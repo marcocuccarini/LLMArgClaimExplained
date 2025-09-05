@@ -1,0 +1,180 @@
+[
+  {
+    "index": 0,
+    "claim": "A mother revealed to her child in a letter after her death that she had just one eye because she had donated the other to him.",
+    "prediction": "NO_EVIDENCE",
+    "ground_truth": "FALSE",
+    "model": "gpt-oss:20b",
+    "K": 5,
+    "graph_status": "not_generated",
+    "graph": {
+      "nodes": null,
+      "edges": null
+    }
+  },
+  {
+    "index": 1,
+    "claim": "Roche's schizophrenia drug misses goal in two late-stage trials.",
+    "prediction": "FALSE",
+    "ground_truth": "TRUE",
+    "model": "gpt-oss:20b",
+    "K": 5,
+    "graph_status": "generated",
+    "graph": {
+      "nodes": [
+        {
+          "id": "E1",
+          "type": "evidence",
+          "strength": 0.7499005936298626,
+          "text": "Bitopertin: 66% on placebo (p<0.05, per-protocol population). In January 2014, Roche reported that bitopertin failed to meet its endpoints in two phase III trials assessing its efficacy in reducing negative symptoms of schizophrenia. Subsequently, in April 2014, Roche announced that it was discontinuing all of its phase III trials of bitopertin for schizophrenia except for one. Though Roche has largely ceased its studies of bitopertin for schizophrenia, it is also investigating the drug in the treatment of obsessive-compulsive disorder (OCD), and is continuing its development for this indication. As of August 2014, bitopertin is in phase II clinical trials for OCD."
+        },
+        {
+          "id": "E2",
+          "type": "evidence",
+          "strength": 0.5,
+          "text": "Tamas Bartfai: for 'heartburn', as a consultant to Roche, the catechol-O-methyltransferase inhibitor (Tasmar-tolcapone) used in Parkinson's Disease, the first benzodiazepine\u2013antagonist (flunitrazepam) for treatment of benzodiazepine overdoses, and as a consultant to Novartis the sphingosine 1-phosphate agonist gilenya-fingolimod as the first oral multiple sclerosis drug. He has also worked on four current drug candidates that as of 2015, are in phase 2 and 3 clinical trials. One of the most promising ones is the amyloid \u0391\u03b2 antibody that the Banner Alzheimer's Institute, Roche and the U.S. government are testing in Colombia for prevention of Alzheimer's disease in a large cohort with a familial"
+        },
+        {
+          "id": "E3",
+          "type": "evidence",
+          "strength": 0.5,
+          "text": "LY-404,039: Company announced their decision to stop their ongoing clinical studies investigating LY-2140023 as a treatment for schizophrenia after their phase II study did not meet its primary endpoint. The company completed a phase II, randomized, double-blind, placebo- and active-controlled, parallel-group-assignment, dose-ranging, inpatient, multi-center clinical trial. Patients were randomized to receive 5, 20, 40, or 80 mg of LY-2140023, placebo, or olanzapine for 28 days. Results of the clinical trial indicated that neither LY-2140023 nor olanzapine were significantly more efficacious than the placebo as determined with PANSS total scores. Post hoc analyses indicated only a trend towards improvement with LY-2140023, while"
+        },
+        {
+          "id": "E4",
+          "type": "evidence",
+          "strength": 0.5,
+          "text": "Pembrolizumab: chances of proving the drug would work and would make clinical trials faster. (The trials would need fewer patients because of the likelihood of greater effect size.) Moving quickly and reducing the risk of failure was essential for catching up with Bristol-Myers Squibb, which had an approximate five year lead over Merck. The phase I study started in early 2011, and Eric Rubin, who was running the melanoma trial, argued for and was able to win expansion of the trial until it reached around 1300 people. This was the largest Phase I study ever run in oncology, with the patients"
+        },
+        {
+          "id": "E5",
+          "type": "evidence",
+          "strength": 0.2500994063701377,
+          "text": "Mad in America: patients on medications. He then describes fifty years of American scientists doing experiments on schizoprenia patients: to intentionally exacerbate their symptoms and study the results. He compares the doctors' behavior, unfavorably, to 1947 after American trials of Nazi doctors ended in the Nuremberg Code for ethics in human experimentation. Part Four is Whitaker's description of drug trials for the newer atypical antipsychotics. He says that many of these trials were stacked in favor of the drug being proposed by eliminating the placebo, or by comparing multiple doses of the new drug against a single, very high dose of the old"
+        }
+      ],
+      "edges": [
+        {
+          "source": "E3",
+          "target": "E1",
+          "relation": "support"
+        },
+        {
+          "source": "E3",
+          "target": "E5",
+          "relation": "contradict"
+        }
+      ]
+    }
+  },
+  {
+    "index": 2,
+    "claim": "New Chemo Drug May Benefit Some Breast Cancer Patients",
+    "prediction": "FALSE",
+    "ground_truth": "TRUE",
+    "model": "gpt-oss:20b",
+    "K": 5,
+    "graph_status": "generated",
+    "graph": {
+      "nodes": [
+        {
+          "id": "E1",
+          "type": "evidence",
+          "strength": 0.9999008118376964,
+          "text": "Adjuvant therapy: which the potential benefits must be evaluated against the toxicity and cost of treatment and other potential side effects. Giving two or more chemotheraputic agents at once may decrease the chances of recurrence of the cancer, and increase overall survival in patients with breast cancer. Commonly used combination chemotherapy regimines used include: Roughly 15% of ovarian cancers are detected at the early stage, at which the 5-year survival rate is 92%. A Norwegian meta-analysis of 22 randomized studies involving early-stage ovarian cancer revealed the likelihood that 8 out of 10 women treated with cisplatin after the initial surgery were overtreated."
+        },
+        {
+          "id": "E2",
+          "type": "evidence",
+          "strength": 0.9999008118376964,
+          "text": "Eribulin: breast cancer who have received at least two prior chemotherapy regimens for late-stage disease, including both anthracycline- and taxane-based chemotherapies. It was approved by Health Canada on December 14, 2011, for treatment of patients with metastatic breast cancer who have previously received at least two chemotherapeutic regimens for the treatment of metastatic disease. Metastatic breast cancer impacts about 150,000 people in the USA, due to the patient population, Eisai was able to file and New Drug Application (NDA) under the orphan and rare disease designation. On January 28, 2016 the US FDA approved Halaven for the treatment of inoperable liposarcoma"
+        },
+        {
+          "id": "E3",
+          "type": "evidence",
+          "strength": 0.9999210934137579,
+          "text": "Metastatic breast cancer: research. Several medications are in development or in phase I/II trials. Typically new medications and treatments are first tested in metastatic cancer before trials in primary cancer are attempted. Another area of research is finding combination treatments which provide higher efficacy with reduced toxicity and side effects. Experimental medications: Scheduling of drug treatments and combination treatment can have substantial impact on treatment efficacy. Nanomedicine is being studied, and there are several developments involving the targeting of cancer cells using nanoprobes. Some instances where nanoprobes are used to target specific tumor cells (based on the organ to which they have metastasized)"
+        },
+        {
+          "id": "E4",
+          "type": "evidence",
+          "strength": 0.9999008118376964,
+          "text": "Metastatic breast cancer: Vinorelbine is also active in metastatic breast cancer. Eribulin was approved in the US in Nov 2010. A targeted therapy drug, Kadcyla, was approved in February 2013. This antibody-drug conjugate targets only cancerous cells. It works by only releasing its toxic payload when triggered by a protein found in the cancerous cells in HER2+ breast cancer. It has extremely low side effects using this target therapy method. For estrogen-receptor-positive metastatic breast carcinoma the first line of therapy is often tamoxifen or another anti-estrogen drug unless there are liver metastases, significant lung involvement, rapidly progressive disease or severe symptoms requiring immediate"
+        },
+        {
+          "id": "E5",
+          "type": "evidence",
+          "strength": 0.9999172919117951,
+          "text": "Kalos Therapeutics: effects associated with chemotherapeutic or small molecule compounds. KT-220, the current lead drug candidate, demonstrates remarkably broad anti-cancer activity. KT-220 has inhibited the growth of pancreatic, lung, prostate, breast, ovarian, colon, and melanoma cells in culture and of pancreatic, breast, and lung cancer tumors in models of human cancer. George Colberg - Chairman & CEO James Merritt, M.D. - President and Chief Medical Officer Gregory F. Witchel, MBA - Executive Vice President Daniel Von Hoff, MD, FACP - Chairman, Scientific Advisory Board David L. Vesely, MD, PhD - Scientific Advisory Board Marc B. Garnick, MD - Scientific Advisory Board Patrice"
+        }
+      ],
+      "edges": [
+        {
+          "source": "E1",
+          "target": "E3",
+          "relation": "support"
+        },
+        {
+          "source": "E1",
+          "target": "E5",
+          "relation": "support"
+        },
+        {
+          "source": "E2",
+          "target": "E1",
+          "relation": "support"
+        },
+        {
+          "source": "E2",
+          "target": "E3",
+          "relation": "support"
+        },
+        {
+          "source": "E2",
+          "target": "E4",
+          "relation": "support"
+        },
+        {
+          "source": "E3",
+          "target": "E1",
+          "relation": "support"
+        },
+        {
+          "source": "E3",
+          "target": "E2",
+          "relation": "support"
+        },
+        {
+          "source": "E3",
+          "target": "E4",
+          "relation": "support"
+        },
+        {
+          "source": "E3",
+          "target": "E5",
+          "relation": "support"
+        },
+        {
+          "source": "E4",
+          "target": "E2",
+          "relation": "support"
+        },
+        {
+          "source": "E4",
+          "target": "E3",
+          "relation": "support"
+        },
+        {
+          "source": "E4",
+          "target": "E5",
+          "relation": "support"
+        },
+        {
+          "source": "E5",
+          "target": "E3",
+          "relation": "support"
+        }
+      ]
+    }
+  }
+]

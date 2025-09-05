@@ -18,19 +18,38 @@ from uncertainpy.gradual.Argument import Argument
 # === Prompts & Examples ===
 EV2C_PROMPT = """
 Task: Given a claim and multiple pieces of evidence, classify each evidence as "support", "contradict", or "irrelevant" to the claim.
-Output a single JSON: {example}
+Classify each evidence as either supporting, contradicting, or irrelevant to the claim.
+Instructions:
+- Support: Evidence that backs the claim.
+- Contradict: Evidence that counters or limits the claim.
+- Irrelevant: Evidence unrelated to the claim.
+Output Format:
+Return a single JSON object with three keys: "support", "contradict", and "irrelevant", each mapping to a list of evidence items.
+Example format: {example}
 Claim:
 {claim}
 Evidence:
 {evidence}
+You must always PROVIDE ONLY A SINGLE JSON without any additional explanation or commentary.
+**Do not** include markdown formatting (such as triple backticks or `json` tags) in the output.
 """
+
+EV2C_JSON_EXAMPLE = '{"support": ["E1"], "contradict": ["E3", "E4"], "irrelevant": ["E2", "E5"]}'
+
 EV2EV_PROMPT = """
-Task: Given a claim and multiple pieces of evidence, analyze the relationships between them.
-Output a single JSON: {example}
+Task: Given a claim and multiple pieces of evidence, analyze the relationships between evidence with respect to the claim.
+Instructions:
+- Support: Two evidence items that reinforce each other regarding the claim.
+- Contradict: Two evidence items that conflict with each other regarding the claim.
+Output Format:
+Return a single JSON object with two keys: "support" and "contradict", each mapping to a list of evidence pairs.
+Example format: {example}
 Claim:
 {claim}
 Evidence:
 {evidence}
+You must always PROVIDE ONLY A SINGLE JSON without any additional explanation or commentary.
+**Do not** include markdown formatting (such as triple backticks or `json` tags) in the output.
 """
 
 EV2C_JSON_EXAMPLE = '{"support": ["E1"], "contradict": ["E3"], "irrelevant": ["E2"]}'
@@ -113,7 +132,6 @@ def ArgRAG_pred(ev2c_dict, ev2ev_dict, arg_dict, arg_model):
     return ("true" if strengths["claim"] >= 0.5 else "false"), G, strengths
 
 # === Single Attempt Prediction ===
-# === Single Attempt Prediction (fixed) ===
 def run_arg_rag_prediction(claim, contexts, K, model_name="llama3.1"):
     contexts_to_use = contexts[:min(K, len(contexts))]
     arg_dict = {f"E{i+1}": ctx for i, ctx in enumerate(contexts_to_use)}
@@ -129,7 +147,7 @@ def run_arg_rag_prediction(claim, contexts, K, model_name="llama3.1"):
     ev2c_dict = safe_json_loads(ev2c_answer)
 
     if not (ev2c_dict.get("support") or ev2c_dict.get("contradict")):
-        return "NO_EVIDENCE", {"nodes": None, "edges": None}
+        return "NO_EVIDENCE", {"nodes": None, "edges": None, "raw_llm": {"ev2c": ev2c_answer, "ev2ev": None}}
 
     # EV2EV
     ev2ev_prompt = EV2EV_PROMPT.format(
@@ -144,24 +162,25 @@ def run_arg_rag_prediction(claim, contexts, K, model_name="llama3.1"):
     arg_model = grad.semantics.ContinuousDFQuADModel()
     pred, G, strengths = ArgRAG_pred(ev2c_dict, ev2ev_dict, arg_dict, arg_model)
 
-    if G is None or len(G.nodes) == 0:
-        return "NO_EVIDENCE", {"nodes": None, "edges": None}
-
-    # Ensure all nodes have 'strength' and 'type'
     graph_json = {
-        "nodes": [
+        "nodes": None,
+        "edges": None,
+        "raw_llm": {"ev2c": ev2c_answer, "ev2ev": ev2ev_answer}
+    }
+
+    if G is not None and len(G.nodes) > 0:
+        graph_json["nodes"] = [
             {
                 "id": n,
                 "type": G.nodes[n].get("type", "unknown"),
-                "strength": G.nodes[n].get("strength", 0.5),  # default if missing
+                "strength": G.nodes[n].get("strength", 0.5),
                 "text": arg_dict.get(n, "")
             }
             for n in G.nodes
-        ],
-        "edges": [{"source": u, "target": v, "relation": d.get("relation", "unknown")} for u, v, d in G.edges(data=True)]
-    }
+        ]
+        graph_json["edges"] = [{"source": u, "target": v, "relation": d.get("relation", "unknown")} for u, v, d in G.edges(data=True)]
 
-    return "TRUE" if pred == "true" else "FALSE", graph_json
+    return ("TRUE" if pred == "true" else "FALSE"), graph_json
 
 # === Full Experiment ===
 def run_full_experiment(K, model_name="llama3.1", out_dir="results"):
@@ -188,21 +207,19 @@ def run_full_experiment(K, model_name="llama3.1", out_dir="results"):
         print(f"[{idx}] Generating prediction and graph...")
         prediction, graph_json = run_arg_rag_prediction(claim, contexts, K, model_name)
 
-        # Se il grafo non è generato, usa None
-        if graph_json["nodes"] is None:
-            graph_status = "not_generated"
-        else:
-            graph_status = "generated"
+        # Determine graph status
+        graph_status = "wrongly_generated" if graph_json["nodes"] is None else "generated"
 
-        # Salva grafi separatamente
+        # Save graphs separately
         graphs.append({
             "index": idx,
-            "nodes": graph_json["nodes"],
-            "edges": graph_json["edges"],
-            "status": graph_status
+            "nodes": graph_json.get("nodes"),
+            "edges": graph_json.get("edges"),
+            "status": graph_status,
+            "raw_llm": graph_json.get("raw_llm")
         })
 
-        # Salva sempre la predizione
+        # Save predictions
         results.append({
             "index": idx,
             "claim": claim,
@@ -211,10 +228,11 @@ def run_full_experiment(K, model_name="llama3.1", out_dir="results"):
             "model": model_name,
             "K": K,
             "graph_status": graph_status,
-            "graph": {"nodes": graph_json["nodes"], "edges": graph_json["edges"]}
+            "graph": {"nodes": graph_json.get("nodes"), "edges": graph_json.get("edges")},
+            "raw_llm": graph_json.get("raw_llm")
         })
 
-        # Salva immediatamente
+        # Save immediately
         with open(preds_file, "w") as f:
             json.dump(results, f, indent=2)
         with open(graphs_file, "w") as f:
@@ -250,7 +268,7 @@ def plot_accuracy(summary, output_dir="plots"):
 
 # === Main Loop ===
 if __name__ == "__main__":
-    Ks = [5, 10]  # example
+    Ks = [10]  # example
     MODELS = ["gpt-oss:20b"]  # example
     base_dir = "results"
     preds_dir = os.path.join(base_dir, "predictions")

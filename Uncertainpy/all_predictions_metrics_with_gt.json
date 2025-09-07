@@ -132,16 +132,16 @@
         "model": "gpt-oss:120b",
         "K": 5,
         "prompt": "unknown",
-        "accuracy": 0.95,
-        "f1_score": 0.9333333333333333,
+        "accuracy": 0.8787878787878788,
+        "f1_score": 0.8186813186813187,
         "confusion_matrix": {
-            "TRUE_pred_TRUE": 29,
-            "TRUE_pred_FALSE": 1,
-            "FALSE_pred_TRUE": 1,
-            "FALSE_pred_FALSE": 9
+            "TRUE_pred_TRUE": 48,
+            "TRUE_pred_FALSE": 4,
+            "FALSE_pred_TRUE": 4,
+            "FALSE_pred_FALSE": 10
         },
-        "num_samples": 40,
-        "invalid_percentage": 56.04
+        "num_samples": 66,
+        "invalid_percentage": 49.62
     },
     {
         "file": "predictions_K10_gemma3-12b.json",

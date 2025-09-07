@@ -6,8 +6,8 @@ import networkx as nx
 from huggingface_hub import hf_hub_download
 from sklearn.metrics import accuracy_score, f1_score
 import ollama
-import uncertainpy.gradual as grad
-from uncertainpy.gradual import Argument, BAG
+import src.uncertainpy.gradual as grad
+from src.uncertainpy.gradual import Argument, BAG
 
 # === Prompts & Examples ===
 EV2C_PROMPT = """

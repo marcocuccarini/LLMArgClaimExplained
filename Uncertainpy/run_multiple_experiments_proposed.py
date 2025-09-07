@@ -4,7 +4,6 @@ import pickle
 import re
 import networkx as nx
 from huggingface_hub import hf_hub_download
-from sklearn.metrics import accuracy_score, f1_score
 import ollama
 import src.uncertainpy.gradual as grad
 from src.uncertainpy.gradual import Argument, BAG
@@ -129,41 +128,55 @@ def update_master_summary(new_summary, master_summary_file="results/master_summa
         if key not in existing_keys:
             master.append(e)
             existing_keys.add(key)
-    with open(master_summary_file,"w") as f:
-        json.dump(master,f,indent=2)
+    with open(master_summary_file,"w") as f: json.dump(master,f,indent=2)
     print(f"Master summary updated: {master_summary_file}")
 
-# === Full Experiment Runner ===
+# === Full Experiment Runner (with resume) ===
 def run_full_experiment(K, model_name="llama3.1", out_dir="results"):
     os.makedirs(out_dir,exist_ok=True)
     preds_file = os.path.join(out_dir,f"predictions_K{K}_{model_name.replace(':','-')}.json")
     graphs_file = os.path.join(out_dir,f"graphs_K{K}_{model_name.replace(':','-')}.json")
+
+    # Load dataset
     file_path = hf_hub_download("Yuqicheng/ArgRAG","PubHealth.pkl",repo_type="dataset")
     with open(file_path,"rb") as f: data = pickle.load(f)
+
+    # Load existing results if any
+    existing_results = {}
+    if os.path.exists(preds_file):
+        with open(preds_file, "r") as f:
+            existing_results = {r["index"]: r for r in json.load(f)}
+
     results, graphs = [], []
     for idx, (claim, contexts, gt) in enumerate(zip(data["claims"],data["contexts"],data["answers"])):
+        if idx in existing_results:
+            print(f"[{idx}] Already processed, skipping...")
+            results.append(existing_results[idx])
+            graphs.append({"index": idx,
+                           "nodes": existing_results[idx]["graph"].get("nodes"),
+                           "edges": existing_results[idx]["graph"].get("edges")})
+            continue
+
         print(f"[{idx}] Generating...")
         pred, graph_json = run_arg_rag_prediction(claim, contexts, K, model_name)
-        results.append({"index":idx,"claim":claim,"prediction":pred,"ground_truth":gt.strip().upper(),"model":model_name,"K":K,"graph":graph_json})
-        graphs.append({"index":idx,"nodes":graph_json.get("nodes"),"edges":graph_json.get("edges")})
-        if idx % 10==0 and idx>0:
-            with open(preds_file,"w") as f: json.dump(results,f,indent=2)
-            with open(graphs_file,"w") as f: json.dump(graphs,f,indent=2)
-    with open(preds_file,"w") as f: json.dump(results,f,indent=2)
-    with open(graphs_file,"w") as f: json.dump(graphs,f,indent=2)
-    # Compute metrics
-    y_true = [r["ground_truth"] for r in results]
-    y_pred = [r["prediction"] for r in results]
-    acc = accuracy_score(y_true,y_pred)
-    f1 = f1_score(y_true,y_pred,pos_label="TRUE")
-    print(f"Model={model_name} | K={K} → Accuracy: {acc:.2%}, F1: {f1:.2%}")
-    # Save summary
-    summary = [{"model":model_name,"K":K,"accuracy":acc,"f1_score":f1}]
-    summary_file = os.path.join(out_dir,"summary.json")
-    with open(summary_file,"w") as f: json.dump(summary,f,indent=2)
-    # Update master summary
+        results.append({"index": idx, "claim": claim, "prediction": pred, "model": model_name, "K": K, "graph": graph_json})
+        graphs.append({"index": idx, "nodes": graph_json.get("nodes"), "edges": graph_json.get("edges")})
+
+        # Save every 10 iterations
+        if idx % 10 == 0 and idx > 0:
+            with open(preds_file, "w") as f: json.dump(results, f, indent=2)
+            with open(graphs_file, "w") as f: json.dump(graphs, f, indent=2)
+
+    # Final save
+    with open(preds_file, "w") as f: json.dump(results, f, indent=2)
+    with open(graphs_file, "w") as f: json.dump(graphs, f, indent=2)
+
+    # Save summary (without metrics)
+    summary = [{"model": model_name, "K": K}]
+    summary_file = os.path.join(out_dir, "summary.json")
+    with open(summary_file, "w") as f: json.dump(summary, f, indent=2)
     update_master_summary(summary, master_summary_file="results/master_summary.json")
-    return results, acc, f1, graphs
+    return results, graphs
 
 # === Main Loop ===
 if __name__=="__main__":

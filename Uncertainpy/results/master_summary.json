@@ -1,0 +1,51 @@
+[
+  {
+    "model": "gemma3:27b",
+    "K": 5
+  },
+  {
+    "model": "gemma3:27b",
+    "K": 10
+  },
+  {
+    "prompt": "baseline_retriever",
+    "model": "gemma3:27b",
+    "K": 5,
+    "accuracy": 0.8563734290843806,
+    "f1_score": 0.889196675900277
+  },
+  {
+    "prompt": "baseline_ic_ralm",
+    "model": "gemma3:27b",
+    "K": 5,
+    "accuracy": 0.7324955116696589,
+    "f1_score": 0.7638668779714739
+  },
+  {
+    "prompt": "baseline_ic_ralm_p",
+    "model": "gemma3:27b",
+    "K": 5,
+    "accuracy": 0.718132854578097,
+    "f1_score": 0.7496012759170654
+  },
+  {
+    "model": "gemma3:4b",
+    "K": 5
+  },
+  {
+    "model": "gemma3:12b",
+    "K": 5
+  },
+  {
+    "model": "gemma3:4b",
+    "K": 10
+  },
+  {
+    "model": "gemma3:12b",
+    "K": 10
+  },
+  {
+    "model": "gpt-oss:20b",
+    "K": 5
+  }
+]

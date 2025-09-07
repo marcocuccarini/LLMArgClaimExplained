@@ -1,0 +1,1544 @@
+[
+  {
+    "index": 0,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 1,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.7499005936298626,
+        "text": "Roche's schizophrenia drug misses goal in two late-stage trials."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.5,
+        "text": "Bitopertin: 66% on placebo (p<0.05, per-protocol population). In January 2014, Roche reported that bitopertin failed to meet its endpoints in two phase III trials assessing its efficacy in reducing negative symptoms of schizophrenia. Subsequently, in April 2014, Roche announced that it was discontinuing all of its phase III trials of bitopertin for schizophrenia except for one. Though Roche has largely ceased its studies of bitopertin for schizophrenia, it is also investigating the drug in the treatment of obsessive-compulsive disorder (OCD), and is continuing its development for this indication. As of August 2014, bitopertin is in phase II clinical trials for OCD."
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.999919165319888,
+        "text": "New Chemo Drug May Benefit Some Breast Cancer Patients"
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 0.9999005161114115,
+        "text": "Eribulin: breast cancer who have received at least two prior chemotherapy regimens for late-stage disease, including both anthracycline- and taxane-based chemotherapies. It was approved by Health Canada on December 14, 2011, for treatment of patients with metastatic breast cancer who have previously received at least two chemotherapeutic regimens for the treatment of metastatic disease. Metastatic breast cancer impacts about 150,000 people in the USA, due to the patient population, Eisai was able to file and New Drug Application (NDA) under the orphan and rare disease designation. On January 28, 2016 the US FDA approved Halaven for the treatment of inoperable liposarcoma"
+      },
+      {
+        "id": "E4",
+        "type": "evidence",
+        "strength": 0.9999005161114115,
+        "text": "Metastatic breast cancer: Vinorelbine is also active in metastatic breast cancer. Eribulin was approved in the US in Nov 2010. A targeted therapy drug, Kadcyla, was approved in February 2013. This antibody-drug conjugate targets only cancerous cells. It works by only releasing its toxic payload when triggered by a protein found in the cancerous cells in HER2+ breast cancer. It has extremely low side effects using this target therapy method. For estrogen-receptor-positive metastatic breast carcinoma the first line of therapy is often tamoxifen or another anti-estrogen drug unless there are liver metastases, significant lung involvement, rapidly progressive disease or severe symptoms requiring immediate"
+      },
+      {
+        "id": "E5",
+        "type": "evidence",
+        "strength": 0.9999005161114115,
+        "text": "Kalos Therapeutics: effects associated with chemotherapeutic or small molecule compounds. KT-220, the current lead drug candidate, demonstrates remarkably broad anti-cancer activity. KT-220 has inhibited the growth of pancreatic, lung, prostate, breast, ovarian, colon, and melanoma cells in culture and of pancreatic, breast, and lung cancer tumors in models of human cancer. George Colberg - Chairman & CEO James Merritt, M.D. - President and Chief Medical Officer Gregory F. Witchel, MBA - Executive Vice President Daniel Von Hoff, MD, FACP - Chairman, Scientific Advisory Board David L. Vesely, MD, PhD - Scientific Advisory Board Marc B. Garnick, MD - Scientific Advisory Board Patrice"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E4",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.7499005936298626,
+        "text": "Jury finding upends Bayer's Roundup defense strategy: experts."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.5,
+        "text": "Roundup (herbicide): million in damages after a jury in San Francisco found that Monsanto had failed to adequately warn consumers of cancer risks posed by the herbicide, a decision the company plans on appealing. Johnson had routinely used two different glyphosate formulations in his work as a groundskeeper, RoundUp and another Monsanto product called Ranger Pro. The jury's verdict addressed the question of whether Monsanto knowingly failed to warn consumers that RoundUp could be harmful, but not whether RoundUp causes cancer. Court documents from the case show the company's efforts to influence scientific research via ghostwriting. After the IARC classified glyphosate as"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 5,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 6,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 7,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 8,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 9,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 10,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.7499005936298626,
+        "text": "South Korea court strikes down abortion law in landmark ruling."
+      },
+      {
+        "id": "E5",
+        "type": "evidence",
+        "strength": 0.5,
+        "text": "Abortion in South Korea: prenatal testing to reveal the sex of the child, the ratio of boys to girls at birth continued to climb through the 1990s. The 1987 law was ruled unconstitutional by the Constitutional Court in 2008. Using a 2005 survey of 25 hospitals and 176 private clinics, one study estimated that 342,433 induced abortions were performed that year, which would imply an abortion rate of 29.8 abortions per 1000 women aged 15\u201344. The rate was higher among single women than among married women. The Ministry of Health and Welfare estimated that 169,000 induced abortions were performed in 2010. Other researchers, including"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E5",
+        "target": "claim",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.9999996114544493,
+        "text": "Scientists debate cause of dolphin deaths."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9998011872598469,
+        "text": "Maui's dolphin: not have their cause of death assessed or it was unknown. Six deaths were linked to possible or known net entanglement, six deaths to natural causes, and two deaths to human interaction. Dolphins can get entangled in fishing nets and drown. The DOC Incident Database contains no reports of a M\u0101ui's dolphin mortality in a trawl net. Some groups in the fishing industry are against increased bans on set nets into waters further offshore and inside harbours, and say other factors are responsible for the decline in the population, including disease, pollution, mining, and natural predation. Since the first major"
+      },
+      {
+        "id": "E5",
+        "type": "evidence",
+        "strength": 0.9998011872598469,
+        "text": "Environmental impact of the Deepwater Horizon oil spill: February is not even over yet.\" From mid-January to late March 2011, scientists counted almost 200 dead dolphins in the Gulf, with another 90 in 2010. After investigating the deaths, NOAA put a gag order on the results, saying that the research is part of a criminal investigation of the spill. Numerous independent scientists said they have been \"personally rebuked by federal officials for speaking out of turn to the media about efforts to determine the cause\" of the deaths. In April 2011, one year from the onset of the spill, scientists confirmed that they had discovered oil on dead"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E1",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.9999996114544493,
+        "text": "Evacuation plan 'out the window' when fire hit California town."
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 0.9998011872598469,
+        "text": "Camp Fire (2018): California Department of Forestry and Fire Protection (Cal Fire), \"Pretty much the community of Paradise is destroyed, it's that kind of devastation. The wind that was predicted came and just wiped it out.\" The first hours saw a cascade of failures in the emergency alert system, rooted in its patchwork, opt-in nature, and compounded by a loss of 17 cell towers. This point of failure in a fast-moving emergency allowed no room for error. Thousands of 911 calls inundated two emergency dispatchers on duty. Emergency alerts suffered human error as city officials failed to include four at-risk areas of the"
+      },
+      {
+        "id": "E4",
+        "type": "evidence",
+        "strength": 0.9998011872598469,
+        "text": "Weed, California: central part of Weed at approximately 1:30pm and within 4 hours quickly spread to over . Evacuations were immediately ordered, and a shelter was first set up at College of the Siskiyous, but as fire headed towards the college, the evacuation center was relocated first to the Siskiyou Golden Fairgrounds in Yreka, then to Yreka and Mount Shasta High Schools, then to the Armory in Mt. Shasta. Over 200 structures were damaged or destroyed, including two churches, the elementary school, high school, and Roseburg mill. The schools and mill sustained only minimal damage to outbuildings. About 7,678 Pacific Power customers"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E2",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.5,
+        "text": "People can fly with dogs, pot-bellied pigs, turkeys, monkeys, and miniature horses if they claim that their pets are emotional support animals."
+      },
+      {
+        "id": "E4",
+        "type": "evidence",
+        "strength": 0.3333986176015727,
+        "text": "Emotional support animal: the luggage. With emotional assistance animals, on the other hand, they are not required to be caged, nor are people charged for flying with an emotional support animal. In 2017, a quarter million passengers brought emotional support animals with them on just Delta Air Lines. With the exceptions provided to emotional support animals, many people who do not have a mental disability have tried to bring their animals on a plane and pass them off as emotional support animals. Airlines, like Southwest and JetBlue, however, typically have policies that passengers flying with emotional support animals must follow. While an airline"
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.3333986176015727,
+        "text": "Emotional support animal: aircraft to permit a person with a disability to travel with a prescribed emotional support animal, so long as they have appropriate documentation and the animal is not a danger to others and does not interfere with others (through unwanted attention, barking, inappropriate toileting, etc.). \"Unusual\" animals, including all snakes and other reptiles, can legally be refused. In regards to airline policies affecting persons flying with animals, most airlines charge fees and require the animal to be in a cage that can fit under the seat; if a caged animal cannot be placed under the seat, the animal flies with"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E4",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E1",
+        "relation": "attack"
+      },
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E1",
+        "target": "E4",
+        "relation": "attack"
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 15,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.7499005936298626,
+        "text": "Prince Harry joins Elton John to launch HIV campaign targeting men."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.5,
+        "text": "Prince Harry, Duke of Sussex: The Prince was appointed the president of the Queen's Commonwealth Trust, which focuses on projects involving children and welfare of prisoners in April. Also in April 2018, Harry was selected as one of the 100 Most Influential People in the World by \"Time\" magazine. In July 2018, the Elton John AIDS Foundation announced that the Duke of Sussex and British singer Elton John were about to launch a global coalition called MenStar that would focus \"on treating HIV infections in men\". Harry enjoys playing many sports, including competitive polo, skiing, and motocross. He is a supporter of Arsenal Football Club."
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.9999996114544493,
+        "text": "Suicide kills one person every 40 seconds, says WHO."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9998011872598469,
+        "text": "World Suicide Prevention Day: under-reporting and misclassification are greater problems for suicide than for most other causes of death.\" An estimated one million people per year die by suicide or about one person in 10,000 (1.4% of all deaths), or \"a death every 40 seconds or about 3,000 every day\". As of 2004 the number of people who die by suicide is expected to reach 1.5 million per year by 2020. On average, three male suicides are reported for every female one, consistently across different age groups and in almost every country in the world. \"Conversely, rates of suicide attempts tend to be 2-3"
+      },
+      {
+        "id": "E3",
+        "type": "evidence",
+        "strength": 0.9998011872598469,
+        "text": "Epidemiology of suicide: their own lives every year, more than those murdered or killed in war. WHO figures show a suicide takes place somewhere in the world roughly every 40 seconds. According to the National Institute of Mental Health, suicide contagion is a serious problem, especially for young people. Suicide can be facilitated in vulnerable teens by exposure to real or fictional accounts of suicide, including media coverage of suicide, such as intensive reporting of the suicide of a celebrity or idol. Suicide rates are highest in Europe's Baltic states, where around 40 people per 100,000 die by suicide each year. The lowest"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E1",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.2500994063701377,
+        "text": "Photographs show a boy having his arm crushed under a truck as a punishment for stealing bread."
+      },
+      {
+        "id": "E4",
+        "type": "evidence",
+        "strength": 0.5,
+        "text": "Charles W. Howard: curb, and overturning the vehicle. The young man let out a wail as he was knocked out of the way by the truck. Howard later remarked, \"I knew if he could shout he was alive and that was more than I expected.\" Frightened half-to-death, he climbed out of the truck to check on the boy, who was frightened but unharmed. Bystanders quickly came to assist Howard, but when he directed them to check on the child, the boy was nowhere to be found. One of the truck wheels was crushed and the bystanders assisted him in turning the truck upright."
+      }
+    ],
+    "edges": [
+      {
+        "source": "E4",
+        "target": "claim",
+        "relation": "attack"
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 19,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 20,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 21,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 22,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.2500994063701377,
+        "text": "Page 92 of the House health care bill \"says specifically that people can't purchase private health insurance after a date certain."
+      },
+      {
+        "id": "E4",
+        "type": "evidence",
+        "strength": 0.5,
+        "text": "Betsy McCaughey: \"straight from the text of the bill.\" Supporters of the Clinton plan questioned McCaughey's claims, including her statements that \"the law will prevent you from going outside the system to buy basic health coverage you think is better\" and that \"doctor[s] can be paid only by the plan, not by you\" by pointing to the text of the legislation such as Section 1003: \"Nothing in this Act shall be construed as prohibiting... An individual from purchasing any health care services.\" According to \"The Washington Post\", the \"No Exit\" article, the White House response, and the ensuing television and radio interviews"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E4",
+        "target": "claim",
+        "relation": "attack"
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.1422466577589739,
+        "text": "A few drops of Visine brand eye drops taken internally will induce uncontrollable diarrhea."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.4140127688109652,
+        "text": "Visine: but debilitating bouts of explosive diarrhea, akin to that of a laxative. This will not produce explosive diarrhea, but oral administration of Visine can induce dangerous side effects related to Visine's ingredient tetrahydrozoline hydrochloride such as: Anyone ingesting Visine should get medical attention or contact a poison control center immediately. Visine is formulated in several varieties: VISINE A.C. - Astringent/Redness Reliever Eye Drops (Tetrahydrozoline HCl 0.05%, Zinc sulfate 0.25%) VISINE FOR CONTACTS - For Silicone Hydrogel and Hydrophilic lenses VISINE L.R. (Oxymetazoline HCI 0.025%) VISINE TEARS (Glycerin 0.2%, Hypromellose 0.2%, Polyethylene glycol 400 1% - Used AS NEEDED) VISINE-A (Formerly"
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 0.4140127688109652,
+        "text": "Visine: Visine Visine is a brand of eye drops produced by Johnson & Johnson. Johnson & Johnson acquired Visine, along with Pfizer's entire consumer healthcare portfolio, in December 2006. In some countries it is called Vispring. The active ingredients in the original Visine formulation are potassium chloride and tetrahydrozoline hydrochloride which is a vasoconstrictor, and therefore constricts the eye's superficial blood vessels. Visine is administered topically with 1 to 2 drops applied to the affected eye(s) up to 4 times daily . A common urban legend is that a few drops of Visine in an unsuspecting victim's drink will cause harmless"
+      },
+      {
+        "id": "E4",
+        "type": "evidence",
+        "strength": 0.17179024516742006,
+        "text": "Tetryzoline: putting a few drops of Visine in an unsuspecting person's beverage. However, the actual results of the prank may be worse, varying from severe nausea and vomiting to seizures or a coma. Diarrhea is not a side effect. In late August 2018, a South Carolina woman, was charged with murdering her husband by putting eye drops containing tetryzoline his drinking water. An autopsy found high concentrations of tetryzoline in his body. Tetryzoline has been used as a date rape drug in a number of cases due to its ability to cause dizziness and unconsciousness. Tetryzoline was used as a plot"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E1",
+        "target": "E4",
+        "relation": "attack"
+      },
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E2",
+        "target": "E4",
+        "relation": "attack"
+      },
+      {
+        "source": "E4",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E4",
+        "target": "E1",
+        "relation": "attack"
+      },
+      {
+        "source": "E4",
+        "target": "E2",
+        "relation": "attack"
+      }
+    ]
+  },
+  {
+    "index": 24,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.7499005936298626,
+        "text": "FDA Approves Bayer's Kyleena\u2122 (Levonorgestrel-Releasing Intrauterine System) 19.5 mg for Prevention of Pregnancy for up to Five Years"
+      },
+      {
+        "id": "E3",
+        "type": "evidence",
+        "strength": 0.5,
+        "text": "Intrauterine device: reduce or even prevent menstrual bleeding. As a result, they are used to treat menorrhagia (heavy menses), once pathologic causes of menorrhagia (such as uterine polyps) have been ruled out. The progestin released by hormonal IUDs primarily acts locally; use of Mirena results in much lower systemic progestin levels than other very-low-dose progestogen only contraceptives. Mirena is approved for use up to five years in the US, though studies support its efficacy for up to seven years. Like Mirena, Kyleena is also approved for up to 5 years but is smaller and releases slightly less levonorgestrel. Skyla is even smaller"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E3",
+        "target": "claim",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 25,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 26,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 27,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.5,
+        "text": "Women in the United States are 50 percent more likely to die from pregnancy or childbirth-related causes compared to their mothers."
+      },
+      {
+        "id": "E3",
+        "type": "evidence",
+        "strength": 0.3333986176015727,
+        "text": "Maternal death: be pregnancy-related deaths. Since 2016, ProPublica and NPR investigated factors that led to the increase in maternal mortality in the United States. They reported that the \"rate of life-threatening complications for new mothers in the U.S. has more than doubled in two decades due to pre-existing conditions, medical errors and unequal access to care.\" According to the Centers for Disease Control and Prevention, c. 4 million women who give birth in the US annually, over 50,000 a year, experience \"dangerous and even life-threatening complications.\" According to a report by the United States Centers for Disease Control and Prevention, in 1993"
+      },
+      {
+        "id": "E4",
+        "type": "evidence",
+        "strength": 0.3333986176015727,
+        "text": "Childbirth: retrieved in 2015, since 1990 there has been a 44 per cent decline in the maternal death rate. However, according to 2015 figures 830 women die every day from causes related to pregnancy or childbirth and for every woman who dies, 20 or 30 encounter injuries, infections or disabilities. Most of these deaths and injuries are preventable. In 2008, noting that each year more than 100,000 women die of complications of pregnancy and childbirth and at least 7 million experience serious health problems while 50 million more have adverse health consequences after childbirth, the World Health Organization (WHO) has urged"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E3",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E4",
+        "relation": "attack"
+      },
+      {
+        "source": "E4",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E4",
+        "target": "E3",
+        "relation": "attack"
+      }
+    ]
+  },
+  {
+    "index": 28,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.999919165319888,
+        "text": "Expert Panel Reaffirms Need for Colon Cancer Screen Beginning at Age 50"
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9999005161114115,
+        "text": "Colorectal cancer: 75 or those with a life expectancy of less than 10 years, screening is not recommended. It takes about 10 years after screening for one out of a 1000 people to benefit. The USPSTF list seven potential strategies for screening, with the most important thing being that at least one of these strategies is appropriately used. In Canada, among those 50 to 75 years old at normal risk, fecal immunochemical testing or FOBT is recommended every two years or sigmoidoscopy every 10 years. Colonoscopy is less preferred. Some countries have national colorectal screening programs which offer FOBT screening for all"
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 0.9999005161114115,
+        "text": "Fecal occult blood: suspects colon cancer, more rigorous investigation is necessary, whether or not the test is positive. In 2006, the Australian Government introduced the National Bowel Cancer Program which has been updated several times since; targeted screening will be done of all Australians aged from 50 to 74 by 2020. Cancer Council Australia recommended that FOBT should be done every two years. People over 50 not yet eligible for the national program can arrange with their doctor for a FOBT. The Canadian Cancer Society recommends that men and women aged 50 and over have a FOBT at least every 2 years. In"
+      },
+      {
+        "id": "E4",
+        "type": "evidence",
+        "strength": 0.9999005161114115,
+        "text": "Cancer screening: is acceptable to screen this age group with a Pap smear alone every 3 years. In women over the age of 65, screening for cervical cancer may be discontinued in the absence of abnormal screening results within the prior 10 years and no history of CIN 2 or higher. Screening for colorectal cancer, if done early enough, is \"preventive\" because almost all colorectal cancers originate from benign growths called \"polyps\", which can be located and removed during a colonoscopy (see \"colonic polypectomy\"). The US Preventive Services Task Force recommends screening for colorectal cancer using fecal occult blood testing, sigmoidoscopy, or"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E2",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 29,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.9999996114544493,
+        "text": "To reverse damage of sitting, take a brisk, hour-long walk"
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9998011872598469,
+        "text": "Flow-mediated dilation: steps per day, but were restricted to less than 5,000 steps per day for five days showed impaired FMD in the popliteal (leg) artery, but not the brachial (arm) artery. The reduction of leg FMD caused by prolonged sitting can be reduced by fidgeting (periodic leg movement). An eight-week program of brisk walking resulted in a 50% increase in brachial artery FMD in middle-aged and older men, but failed to produce this benefit in estrogen-deficient post-menopausal women. Forty-five minutes of cycling exercise before sitting has been shown to eliminate the impaired leg FMD due to three hours of sitting. Athletes"
+      },
+      {
+        "id": "E5",
+        "type": "evidence",
+        "strength": 0.9998011872598469,
+        "text": "Shatapawali: can do wonders to your health. It not only improves the blood circulation in the body but also relieves stress. This is the reason, why people walking around 100 steps after dinner enjoy a good night\u2019s sleep. A 15-minute walk after eating your dinner not only lowers blood levels of fat (triglycerides and cholesterol) but also enhances blood circulation to various parts of the body. This is mainly due to the fact that walking ensures proper supply of oxygen and nutrients to the heart which in turn causes better blood circulation. People suffering from type 2 diabetes are benefitted by"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E1",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 30,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.2500994063701377,
+        "text": "The most likely triggering cause of (microcephaly)\" is the \"DTaP shot, a vaccine that had been recently mandated by the Brazilian government to be injected into pregnant women."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.5,
+        "text": "Pyriproxyfen: where no evidence has been found of the cases being linked to any environmental cause like an insecticide. Neurologist Vanessa van der Linden stated in an interview, \"Clinically, the changes we see in the scans of babies suggest that the injuries were caused by congenital infection and not by larvicide, drug or vaccine.\" Noted skeptic David Gorski called the claim a conspiracy theory and pointed out that antivaccine proponents had also claimed that the Tdap vaccine was the cause of the microcephaly outbreak, due to its introduction in 2014, along with adding, \"One can\u2019t help but wonder what else the"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "attack"
+      }
+    ]
+  },
+  {
+    "index": 31,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 32,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 33,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 34,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 35,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 36,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 8.033910032286324e-06,
+        "text": "\u201cThe flu killed 80,000 Americans last year according to the CDC.\u201d"
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9998924605101294,
+        "text": "2009 flu pandemic: It is often stated that about 36,000 die from the seasonal flu in the U.S. each year, and this is frequently understood as an indication that the H1N1 strain was not as severe as seasonal influenza. The 36,000 estimate was presented in a 2003 study by CDC scientists published in the \"Journal of the American Medical Association\" but only refers to a period from 1990\u201391 through 1998\u201399. During those years, the number of estimated deaths ranged from 17,000 to 52,000, with an average of about 36,000. The \"JAMA\" study also looked at seasonal influenza-associated deaths over a 23-year period, from"
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 8.407994880425903e-06,
+        "text": "2009 flu pandemic in the United States: vaccine was beginning to be widely distributed to the general public by several states. On December 23, 2009 the CDC reported a reduction of the disease by 59% percent and the disease was expected to end in the United States in January 2010. On January 15, 2010, the CDC released new estimate figures for swine flu, saying it has sickened about 55 million Americans and killed about 11,160 from April through mid-December. On February 12, 2010, the CDC released updated estimate figures for swine flu, reporting that, in total, 57 million Americans had been sickened, 257,000 had been hospitalised and"
+      },
+      {
+        "id": "E3",
+        "type": "evidence",
+        "strength": 0.9998924605101294,
+        "text": "2009 flu pandemic: Finelli, a flu surveillance official with the CDC. Estimating deaths from influenza is also a complicated process. In 2005, influenza only appeared on the death certificates of 1,812 people in the US. The average annual US death toll from flu is, however, estimated to be 36,000. The CDC explains: \"[I]nfluenza is infrequently listed on death certificates of people who die from flu-related complications\" and hence, \"Only counting deaths where influenza was included on a death certificate would be a gross underestimation of influenza's true impact\". Influenza surveillance information on the 2009 H1N1 flu pandemic is available, but almost no studies"
+      },
+      {
+        "id": "E4",
+        "type": "evidence",
+        "strength": 8.407994880425903e-06,
+        "text": "2009 flu pandemic in the United States: 15, 2009. The CDC distributed a vaccine for the novel flu strain. using mechanisms already in place for its Vaccines for Children (VFC) program. On October 24, 2009, President Barack Obama declared Swine Flu a national emergency in the United States. On November 12, 2009, the CDC reported an estimated 22 million Americans had been infected with 2009 A H1N1 and 4,000 Americans have died. On December 10, 2009, the CDC reported an estimated 50 million Americans or 1 in 6 people had been infected with the 2009 A H1N1 Virus and 10,000 American had died, by which time the"
+      },
+      {
+        "id": "E5",
+        "type": "evidence",
+        "strength": 0.9998924605101294,
+        "text": "Pandemic H1N1/09 virus: virus in the US. This is sometimes compared to the 36,000 people per year who die from the \"common flu\", mostly in winter, although this number is an estimate. The death rate of H1N1 in the US can be calculated as less than 0.02% from November 2009 figures from the CDC, and has been explicitly calculated as 0.026% in England. Existing vaccines against seasonal flu provide no protection. Vaccines were released in North America in late October. Production may be 3 billion doses per year rather than the earlier estimate of 5 billion. On May 22, 2009, World Health Organization"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E1",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E2",
+        "relation": "attack"
+      },
+      {
+        "source": "E1",
+        "target": "E4",
+        "relation": "attack"
+      },
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E2",
+        "target": "E1",
+        "relation": "attack"
+      },
+      {
+        "source": "E2",
+        "target": "E3",
+        "relation": "attack"
+      },
+      {
+        "source": "E2",
+        "target": "E5",
+        "relation": "attack"
+      },
+      {
+        "source": "E2",
+        "target": "E4",
+        "relation": "attack"
+      },
+      {
+        "source": "E3",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E3",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E2",
+        "relation": "attack"
+      },
+      {
+        "source": "E3",
+        "target": "E4",
+        "relation": "attack"
+      },
+      {
+        "source": "E4",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E4",
+        "target": "E1",
+        "relation": "attack"
+      },
+      {
+        "source": "E4",
+        "target": "E3",
+        "relation": "attack"
+      },
+      {
+        "source": "E4",
+        "target": "E5",
+        "relation": "attack"
+      },
+      {
+        "source": "E4",
+        "target": "E2",
+        "relation": "attack"
+      },
+      {
+        "source": "E5",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E5",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E2",
+        "relation": "attack"
+      },
+      {
+        "source": "E5",
+        "target": "E4",
+        "relation": "attack"
+      }
+    ]
+  },
+  {
+    "index": 37,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 38,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 39,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 40,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 41,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 42,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.9999048678529551,
+        "text": "Illegal tobacco sales, price driven too high, has been connected to at least several cases of funding terrorism against us in multi-year investigations over the last decade and a half."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9999006022903192,
+        "text": "Illicit cigarette trade: Internet is being actively developed\u2014enabling greater reach, more discretion, and lesser chances of being caught. In 2012, French police disrupted this trend through deleting domain names of online trading sites selling tobacco products (WCO 2012). Evidence suggests tobacco smuggling operations have been linked to terrorist organisations such as Hamas and Hezbollah, which utilize these profits to finance terrorism around the world. since the 1980s. The WCO Illicit Trade Report 2012 highlights the illicit tobacco trade represents a good opportunity for organized crime groups and/or terrorists to generate large sums of criminal profits. Billingslea (2004) wrote, terrorist groups work with organized"
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 0.9999006022903192,
+        "text": "Illicit cigarette trade: crime groups as well as International drug trafficking organisations due to their \u201cestablished trafficking routes and business contacts for the transfer of commodity for profit\u201d. He adds, known and suspected Hezbollah and Hamas members have established front companies and legitimate businesses in the cigarette trade in Central and South America. The IRA (Irish Republican Army) was one of the first groups to begin using cigarettes to fund their activities. Police estimate that the IRA made $100million in the past 5 years from trafficking illicit cigarettes. In the Middle East, the Kurdish Workers Party (PKK) has known involvement in the trafficking"
+      },
+      {
+        "id": "E3",
+        "type": "evidence",
+        "strength": 0.9999006022903192,
+        "text": "Illicit cigarette trade: of contraband cigarettes and tax stamps. The EU Commission report that the PKK has been smuggling American cigarettes into Iraq, which were then controlled by Saddam Hussein\u2019s son. The combined efforts from cigarette and oil smuggling was reported to have made Saddam Hussein as much as $2.7billion annually after 1991. Most recently, 16 Palestinian men arrested due to a cigarette smuggling scheme in New York were found to have some ties to convicted terrorists. One criminal in particular, had known financial ties to Omar Abdel-Rahman, a cleric serving a life sentence for a conspiracy to blow up New York City"
+      },
+      {
+        "id": "E5",
+        "type": "evidence",
+        "strength": 0.9999006022903192,
+        "text": "Illicit cigarette trade: This is known as \"the forbidden-fruit effect,\" among other references. The U.S. government foiled funding operations by Al-Qaeda in New York in 1999 and Hezbollah in North Carolina in 2002. It has been reported that smuggling one truckload of cigarettes within the United States can lead to a profit of US$2 million. Laws specifically pertaining to cigarette smuggling in the United States have included the Contraband Cigarette Trafficking Act of 1978, which makes cigarette smuggling a felony punishable by up to five years in prison. One of the most notable places of cigarette smuggling in the United States is New"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E3",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 43,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.2500994063701377,
+        "text": "John Holdren, director of the White House Office of Science and Technology Policy, \"has proposed forcing abortions and putting sterilants in the drinking water to control population."
+      },
+      {
+        "id": "E3",
+        "type": "evidence",
+        "strength": 0.5,
+        "text": "John Holdren: the nomination committee that he does not believe that government should have a role in determining optimal population size and that he never endorsed forced sterilization. Overpopulation was an early concern and interest. In a 1969 article, Holdren and co-author Paul R. Ehrlich argued, \"if the population control measures are not initiated immediately, and effectively, all the technology man can bring to bear will not fend off the misery to come.\" In 1973, Holdren encouraged a decline in fertility to well below replacement in the United States, because \"210 million now is too many and 280 million in 2040 is"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E3",
+        "target": "claim",
+        "relation": "attack"
+      }
+    ]
+  },
+  {
+    "index": 44,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 45,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 46,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.9999048678529551,
+        "text": "The FDA has updated its warnings for \u2014 and recommended limitations on \u2014 prescribing a class of antibiotics called fluoroquinolones, citing potentially irreversible side-effects including tendon damage and rupture."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9999006022903192,
+        "text": "Levofloxacin: The FDA wrote: \"An FDA safety review has shown that fluoroquinolones when used systemically (i.e. tablets, capsules, and injectable) are associated with disabling and potentially permanent serious side effects that can occur together. These side effects can involve the tendons, muscles, joints, nerves, and central nervous system.\" Such injuries, including tendon rupture, has been observed up to 6 months after cessation of treatment; the elderly, transplant patients, and those with a current or historical corticosteroid use are at elevated risk. A detailed overview of risk factors for fluoroquinolone-associated tendon rupture has been published; advanced age, concurrent treatment with corticosteroids, and"
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 0.9999006022903192,
+        "text": "Quinolone antibiotic: and uncomplicated urinary tract infections. Reports of serious adverse events began emerging, and The FDA first added a Boxed Warning to fluoroquinolones in July 2008 for the increased risk of tendinitis and tendon rupture. In February 2011, the risk of worsening symptoms for those with myasthenia gravis was added to the Boxed Warning. In August 2013, the agency required updates to the labels to describe the potential for irreversible peripheral neuropathy (serious nerve damage). In November 2015, an FDA Advisory Committee discussed the risks and benefits of fluoroquinolones for the treatment of acute bacterial sinusitis, acute bacterial exacerbation of chronic"
+      },
+      {
+        "id": "E3",
+        "type": "evidence",
+        "strength": 0.9999006022903192,
+        "text": "Quinolone antibiotic: uncomplicated urinary tract infections when there are other treatment options. In 2008 the FDA added black box warning on all fluoroquinolones, advising of the increased risk of tendon damage. In 2016 the FDA found that when used systemically (by mouth or injectable) \"disabling and potentially permanent serious side effects\" can involve the tendons, muscles, joints, nerves, and central nervous system. Concerns regarding low blood sugar and mental health problems were added in 2018. Quinolones are associated with a small risk of tendonitis and tendon rupture; a 2013 review found the incidence of tendon injury among those taking fluoroquinolones to be"
+      },
+      {
+        "id": "E4",
+        "type": "evidence",
+        "strength": 0.9999006022903192,
+        "text": "Norfloxacin: that are associated with all members of the fluoroquinolone antibacterial class. Among these, tendon problems and exacerbation of the symptoms of the neurological disorder myasthenia gravis are the subject of \"black box\" warnings in the United States. The most severe form of tendonopathy associated with fluoroquinolone administration is tendon rupture, which in the great majority of cases involves the Achilles tendon. Younger people typically experience good recovery, but permanent disability is possible, and is more likely in older patients. The overall frequency of fluoroquinolone-associated Achilles tendon rupture in patients treated with ciprofloxacin or levofloxacin has been estimated at 17 per"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E3",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 47,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 48,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.7499513568749023,
+        "text": "On mandatory ultrasounds before abortions."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9999006022903192,
+        "text": "Types of abortion restrictions in the United States: allowed to have the procedure. Mandatory transvaginal ultrasounds have been particularly controversial. In Texas, for instance, even if previous ultrasounds had indicated severe congenital defects, a woman seeking an abortion was required under a 2012 law to have another ultrasound done, \"administered by her abortion doctor, and [she had to] listen to a state-mandated description of the fetus she was about to abort\", though state-issued guidelines later did away with that ultrasound if the fetus had an \"irreversible medical condition\". On November 12, 2013, the U.S. Supreme Court declined to hear an appeal by the state of Oklahoma to the"
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 0.9999006022903192,
+        "text": "War on Women: notes that \"the use of trans-vaginal ultrasounds is routine among abortion providers.\" Virginia State legislators passed a bill in 2012 requiring women to have an ultrasound before having an abortion. The legislation, signed by Governor Bob McDonnell, would require that the provider of an abortion make a copy of the fetal image and include it in the file of the patient. In Louisiana, where pregnant women are already required to view ultrasounds of their fetuses before receiving an abortion, lawmakers proposed a bill that would require them to listen to the embryonic/fetal heartbeat as well. Pennsylvania Governor Tom Corbett drew"
+      },
+      {
+        "id": "E3",
+        "type": "evidence",
+        "strength": 0.9999006022903192,
+        "text": "North Carolina Women's Right to Know Act: is the third state to approve a law requiring that a woman be shown an ultrasound before her abortion\". \"Barbara Holt, president of North Carolina Right to Life and a supporter of the new law, said the ultrasound requirement will help women make fully informed decisions.\"The ultrasound is a window into the womb and the opportunity for this mother to get scientifically accurate information about a procedure that is going to have great consequences for her and for her child. It's a life or death decision,\" Holt said. Supporters claim the law is an attempt to ensure that women are"
+      },
+      {
+        "id": "E4",
+        "type": "evidence",
+        "strength": 0.9999006022903192,
+        "text": "Deb Fischer: 675, which required abortion providers to display ultrasound images of the fetus at least one hour prior to the abortions, in a position where the abortion seeker could easily view them. A spokesman for the National Right to Life Committee stated that the Nebraska law was stronger than those of other states, which only required that the client be asked if she wanted to see an ultrasound image. The measure passed by a 40\u20135 vote, and was signed into law by Governor Dave Heineman. TENURE Fischer's district was geographically the largest in the Nebraska Legislature, comprising 12 counties and part"
+      },
+      {
+        "id": "E5",
+        "type": "evidence",
+        "strength": 0.5,
+        "text": "Types of abortion restrictions in the United States: overturning of a bill that mandated compulsory ultrasound examinations. Some states require that a person seeking an abortion wait for a period of one to six days, variously, after visiting the provider for the first time and before having the abortion. The state of South Dakota requires that the patient obtain mandatory counseling from an anti-abortion crisis pregnancy center during this time frame. This type of legislation requires either that a woman be required to listen to her fetus's heartbeat should she attempt to obtain an abortion, or, more rigidly, that abortion become illegal as soon as a heartbeat can"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "claim",
+        "relation": "attack"
+      }
+    ]
+  },
+  {
+    "index": 49,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.9999024358810216,
+        "text": "Tougher vaccine rules move forward in California."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9999011230430052,
+        "text": "Rob Schneider: as lacking any factual basis. Schneider has passionately fought the passage of two California laws, California Assembly Bill 2109 and California Senate Bill 277, which both intended to make childhood vaccination exemptions harder to obtain. On September 28, 2012, Schneider and California State Assemblyman Tim Donnelly spoke at the \"Medical Freedom Rally\", where they urged California Governor Jerry Brown to veto Assembly Bill 2109, which would have made it more difficult for parents to utilize philosophical reasons for exemptions from mandatory childhood vaccinations. While the bill was not vetoed, Governor Brown added a signing message instructing the Department of Health"
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 0.9999011230430052,
+        "text": "California Senate Bill 277: California Senate Bill 277 California Senate Bill 277 (SB277) was a California bill that removed personal belief exemptions to vaccination requirements for entry to private or public elementary or secondary schools in California, as well as day care centers. It was passed in the California State Senate in June 2015 and signed into law by Governor Jerry Brown on June 30, 2015. The bill, co-authored by California state Senators Richard Pan, and Ben Allen, was prompted by the 2014 Disneyland measles outbreak and low levels of vaccination in pockets of California, with some schools having vaccination rates below 60%. SB277"
+      },
+      {
+        "id": "E3",
+        "type": "evidence",
+        "strength": 0.9999011230430052,
+        "text": "California Senate Bill 277: the legislature had leeway to require school immunization, citing the U.S Supreme Court cases Zucht v. King (1922) and Prince v. Massachusetts (1944). She also rejected the need of non-medical exemptions and said the bill did not violate the right to education. California Senate Bill 277 California Senate Bill 277 (SB277) was a California bill that removed personal belief exemptions to vaccination requirements for entry to private or public elementary or secondary schools in California, as well as day care centers. It was passed in the California State Senate in June 2015 and signed into law by Governor Jerry Brown"
+      },
+      {
+        "id": "E4",
+        "type": "evidence",
+        "strength": 0.9999011230430052,
+        "text": "Richard Pan: Senator Ben Allen introduced California Senate Bill 277 in 2015, which eliminated non-medical exemptions to vaccine requierments for California school children. After the bill passed and was signed into law by Governor Jerry Brown, opponents of the bill tried to force a recall election on Pan but failed to submit the required signatures. Pan authored laws to expand newborn screening for severe combined immunodeficiency syndrome (AB395 in 2011), adrenoleukodystrophy (AB1559 in 2014) and all conditions recommended by the federal DHHS Recommended Universal Screening Panel (SB1095 in 2016). Pan authored legislation to extend the California Children's Services Program managed care carve-out"
+      },
+      {
+        "id": "E5",
+        "type": "evidence",
+        "strength": 0.9999011230430052,
+        "text": "Tim Donnelly (politician): aimed to encourage vaccination and improve vaccination rates in the state. (The legislation retained the ability of parents to reject vaccination for their child on the basis of \"personal belief.\") Brown signed the bill into law, although he added a signing statement indication that parents \"whose religious beliefs preclude vaccination\" should not be unduly burdened. In 2015, after outbreaks of whooping cough and measles the previous year, Governor Brown signed into law SB 277, a mandatory vaccination law that eliminated the \"personal belief\" exemption from school vaccination requirements, leaving a physician-granted medical exemption as the only exemption from vaccination requirements."
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E4",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 50,
+    "nodes": [],
+    "edges": []
+  }
+]

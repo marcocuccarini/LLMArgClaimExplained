@@ -1,107 +1,69 @@
-import os
 import json
-import pickle
-import re
-from huggingface_hub import hf_hub_download
-import ollama
-from classes.Ollama import ensure_ollama_model, run_ollama_inference
-from classes.prompt import FACTCHECK_PROMPTS
+import os
+from sklearn.metrics import accuracy_score, f1_score, confusion_matrix
 
-# === Parse predictions ===
-def extract_first_true_false(text):
-    if not text:
-        return None
-    m = re.search(r'\b(true|false)\b', text, re.IGNORECASE)
-    if m:
-        return "TRUE" if m.group(1).lower() == "true" else "FALSE"
-    return None
+input_dir = "results"
+output_file = "all_predictions_metrics.json"
 
-def parse_prediction(answer, prompt_type):
-    if not answer:
-        return "INVALID"
-    if prompt_type == "binary":
-        tf = extract_first_true_false(answer)
-        return tf if tf else "INVALID"
-    return "INVALID"
+all_metrics = []
 
-# === Master summary updater ===
-def update_master_summary(new_summary, master_summary_file="results/master_summary.json"):
-    os.makedirs(os.path.dirname(master_summary_file), exist_ok=True)
-    if os.path.exists(master_summary_file):
-        with open(master_summary_file, "r") as f:
-            master = json.load(f)
-    else:
-        master = []
-    existing_keys = {(e.get("model"), e.get("K"), e.get("prompt")) for e in master}
-    for e in new_summary:
-        key = (e.get("model"), e.get("K"), e.get("prompt"))
-        if key not in existing_keys:
-            master.append(e)
-            existing_keys.add(key)
-    with open(master_summary_file, "w") as f:
-        json.dump(master, f, indent=2)
-    print(f"Master summary updated: {master_summary_file}")
+valid_labels = {"TRUE", "FALSE"}
 
-# === Experiment Runner ===
-def run_experiment(K, MODEL, prompt_name, prompt_template, prompt_type, save_dir="results"):
-    os.makedirs(save_dir, exist_ok=True)
-    model_safe = MODEL.replace(":", "-").replace("/", "-")
-    predictions_file = os.path.join(save_dir, f"predictions_{prompt_name}_k{K}_{model_safe}.json")
+for filename in os.listdir(input_dir):
+    if filename.startswith("predictions") and filename.endswith(".json"):
+        filepath = os.path.join(input_dir, filename)
+        with open(filepath, "r") as f:
+            data = json.load(f)
 
-    file_path = hf_hub_download("Yuqicheng/ArgRAG", "PubHealth.pkl", repo_type="dataset")
-    with open(file_path, "rb") as f:
-        data = pickle.load(f)
+        predictions = [item.get("prediction") for item in data]
+        ground_truths = [item.get("ground_truth") for item in data]
 
-    ensure_ollama_model(MODEL)
+        # Print unique values to debug errors
+        print(f"\n=== Debug values for {filename} ===")
+        print("Unique predictions:", set(predictions))
+        print("Unique ground truths:", set(ground_truths))
 
-    results = []
-    for idx, (claim, contexts, gt) in enumerate(zip(data["claims"], data["contexts"], data["answers"])):
-        cur_contexts = contexts[:min(K, len(contexts))]
+        # Filter valid labels
+        filtered = [item for item in data if item.get("prediction") in valid_labels and item.get("ground_truth") in valid_labels]
+        if not filtered:
+            print(f"Skipping {filename}: no usable predictions")
+            continue
 
-        # Run prompt
-        evidence_text = "\n".join(f"- {ctx}" for ctx in cur_contexts)
-        prompt = prompt_template.format(claim=claim, evidence=evidence_text, example="{}")
-        answer = run_ollama_inference(prompt, model=MODEL)
-        pred = parse_prediction(answer, prompt_type)
+        predictions = [item["prediction"] for item in filtered]
+        ground_truths = [item["ground_truth"] for item in filtered]
 
-        results.append({
-            "index": idx,
-            "claim": claim,
-            "prediction": pred,
-            "ground_truth": gt.strip().upper(),
-            "model": MODEL,
-            "K": K,
-            "prompt": prompt_name
-        })
+        # Metrics
+        accuracy = accuracy_score(ground_truths, predictions)
+        f1 = f1_score(ground_truths, predictions, labels=["TRUE", "FALSE"], average='macro')
+        cm = confusion_matrix(ground_truths, predictions, labels=["TRUE", "FALSE"])
+        cm_dict = {
+            "TRUE_pred_TRUE": int(cm[0][0]),
+            "TRUE_pred_FALSE": int(cm[0][1]),
+            "FALSE_pred_TRUE": int(cm[1][0]),
+            "FALSE_pred_FALSE": int(cm[1][1])
+        }
 
-        # Save periodically
-        if idx % 10 == 0 and idx > 0:
-            with open(predictions_file, "w") as f:
-                json.dump(results, f, indent=2)
+        info = {
+            "file": filename,
+            "model": data[0].get("model", "unknown"),
+            "K": data[0].get("K", "unknown"),
+            "prompt": data[0].get("prompt", "unknown"),
+            "accuracy": accuracy,
+            "f1_score": f1,
+            "confusion_matrix": cm_dict,
+            "num_samples": len(filtered)
+        }
+        all_metrics.append(info)
 
-    # Final save
-    with open(predictions_file, "w") as f:
-        json.dump(results, f, indent=2)
+        # Print metrics
+        print(f"\n=== Metrics for {filename} ===")
+        print("Samples evaluated:", info["num_samples"])
+        print("Accuracy:", round(info["accuracy"], 4))
+        print("F1 Score (macro):", round(info["f1_score"], 4))
+        print("Confusion Matrix:", cm_dict)
 
-    # Save summary (without metrics)
-    summary = [{"prompt": prompt_name, "model": MODEL, "K": K}]
-    summary_file = os.path.join(save_dir, "summary.json")
-    with open(summary_file, "w") as f:
-        json.dump(summary, f, indent=2)
+# Save metrics
+with open(output_file, "w") as f:
+    json.dump(all_metrics, f, indent=4)
 
-    # Update master summary
-    update_master_summary(summary, master_summary_file="results/master_summary.json")
-
-    print(f"Finished: {prompt_name} | {MODEL} | K={K}")
-
-    return predictions_file, results
-
-# === Main Loop ===
-if __name__ == "__main__":
-    Ks = [5, 10]
-    MODELS = ["gemma3:27b"]
-    save_dir = "results"
-    for K in Ks:
-        for MODEL in MODELS:
-            for prompt_name, (template, ptype) in FACTCHECK_PROMPTS.items():
-                run_experiment(K, MODEL, prompt_name, template, ptype, save_dir=save_dir)
+print(f"\n✅ Metrics saved to {output_file}")

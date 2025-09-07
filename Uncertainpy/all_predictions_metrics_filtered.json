@@ -1,0 +1,47 @@
+[
+    {
+        "file": "predictions_baseline_retriever_k5_gemma3-27b.json",
+        "model": "gemma3:27b",
+        "K": 5,
+        "prompt": "baseline_retriever",
+        "accuracy": 0.8563734290843806,
+        "f1_score": 0.8425575216236079,
+        "confusion_matrix": {
+            "TRUE_pred_TRUE": 321,
+            "TRUE_pred_FALSE": 53,
+            "FALSE_pred_TRUE": 27,
+            "FALSE_pred_FALSE": 156
+        },
+        "num_samples": 557
+    },
+    {
+        "file": "predictions_baseline_ic_ralm_k5_gemma3-27b.json",
+        "model": "gemma3:27b",
+        "K": 5,
+        "prompt": "baseline_ic_ralm",
+        "accuracy": 0.7324955116696589,
+        "f1_score": 0.7276891325675174,
+        "confusion_matrix": {
+            "TRUE_pred_TRUE": 241,
+            "TRUE_pred_FALSE": 133,
+            "FALSE_pred_TRUE": 16,
+            "FALSE_pred_FALSE": 167
+        },
+        "num_samples": 557
+    },
+    {
+        "file": "predictions_baseline_ic_ralm_p_k5_gemma3-27b.json",
+        "model": "gemma3:27b",
+        "K": 5,
+        "prompt": "baseline_ic_ralm_p",
+        "accuracy": 0.718132854578097,
+        "f1_score": 0.7136096728661303,
+        "confusion_matrix": {
+            "TRUE_pred_TRUE": 235,
+            "TRUE_pred_FALSE": 139,
+            "FALSE_pred_TRUE": 18,
+            "FALSE_pred_FALSE": 165
+        },
+        "num_samples": 557
+    }
+]

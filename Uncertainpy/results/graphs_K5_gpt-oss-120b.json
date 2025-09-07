@@ -1540,5 +1540,1726 @@
     "index": 50,
     "nodes": [],
     "edges": []
+  },
+  {
+    "index": 51,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.999919165319888,
+        "text": "French breast implant boss arrested."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9999005161114115,
+        "text": "Poly Implant Prothe\u0300se: a friend in the Six-Fours in the Var located in South of France and taken into custody. Investigators searched the house. A deputy chief executive was also arrested at his home. Philippe Courtois, a lawyer represents 1300 women in France. Laurent Gaudon, represents four women and say a surgeon should inform about complications from both the surgery and devices used. Nathalie Lozano, lawyer, represents more than 1400 women from Colombia, Argentina, United Kingdom and Venezuela. She claims T\u00dcV Rheinland's gross negligence in the process of certifying the quality process. On 17 April 2013, the trial of 5 executives in begun"
+      },
+      {
+        "id": "E3",
+        "type": "evidence",
+        "strength": 0.9999005161114115,
+        "text": "Poly Implant Prothe\u0300se: in Marseille, France. Those charged are the company founder Mr Mas, who was booed in the court, his deputy Claude Couty, the quality director Hannelore Font, technical director Loic Gossart and products chief Thierry Brinon. They face up to five years in prison. The trial was expected to last until 17 May. On 10 December 2013, Jean-Claude Mas was sent to prison for four years, and was fined 75,000 euros (\u00a363,000) by a court in Marseille, France. British Association of Aesthetic Plastic Surgeons (BAAPS) says that poor postmarketing surveillance is the root of the crisis, and proposes significantly more stringent"
+      },
+      {
+        "id": "E4",
+        "type": "evidence",
+        "strength": 0.9999005161114115,
+        "text": "Poly Implant Prothe\u0300se: 25 December 2011. The decision has been made in consultation with minister of health, Xavier Bertrand. Mas has recently undergone difficult surgery regarding a vascular problem that prevents him from walking said his lawyer Haddad. Sources say a Marseilles court could soon announce fraud charges against four to six former PIP employees. A fraud case was filed against PIP on 30 December 2011 by France\u2019s state-run health insurance fund (CNAM) officials in Marseille announced. Which is near the company\u2019s laboratory at La Seyne-sur-Mer. On 26 January 2012 at just before 07:00 the founder Mas was arrested in the home of"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E3",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 52,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 53,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.2500994063701377,
+        "text": "The real Hillary Clinton has been dead since 1998 and was replaced with a clone."
+      },
+      {
+        "id": "E4",
+        "type": "evidence",
+        "strength": 0.5,
+        "text": "Foreign policy of the Bill Clinton administration: believed to still be alive when they went missing. On November 16, 2000, Clinton arrived in Hanoi with his wife, Senator-elect Hillary Clinton and daughter Chelsea shortly before his second term in office ended. The next day Clinton spoke to the Vietnamese people publicly about both the conflict as well as the promise renewed relations meant. In 1995, tense relations with China and the imprisonment of an innocent American in the Communist nation, led to pressure for the U.S. to boycott the 1995 United Nations Fourth World Conference on Women in Beijing. The U.S. delegation, chaired by First Lady Hillary"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E4",
+        "target": "claim",
+        "relation": "attack"
+      }
+    ]
+  },
+  {
+    "index": 54,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 55,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.9999996114544493,
+        "text": "Humira Provides Effective, Non-Steroid Alternative for Eye Inflammation"
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9998011872598469,
+        "text": "Birdshot chorioretinopathy: name Humira, have proven to be effective treatment options for birdshot chorioretinopathy. Substantial reduction and even stabilization of both vitreous inflammation and retinal vasculitis have been evident via electroretinography, during daclizumab (IL-2 receptor blocker) therapy. This is also supported by the observation of elevated levels of IL-2 in the eyes of patients. Loss of visual acuity unrelated to the inflammation caused by the disorder, however, often remains unchanged despite usage of the drug. This is reflected by the lack of difference in visual acuity and the vision-related quality of life among various treatment categories in birdshot patients. Contraindications and adverse"
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 0.9998011872598469,
+        "text": "Adalimumab: Adalimumab Adalimumab, sold under the trade name Humira among others, is a medication used to treat rheumatoid arthritis, psoriatic arthritis, ankylosing spondylitis, Crohn's disease, ulcerative colitis, chronic psoriasis, hidradenitis suppurativa, and juvenile idiopathic arthritis. It has also been approved to treat the rare chronic eye condition Birdshot retinochoroidopathy, commonly referred to simply as \u201cbirdshot\u201d. In rheumatoid arthritis, adalimumab has a response rate similar to methotrexate, and in combination, it nearly doubles the response rate of methotrexate alone. Adalimumab is a TNF-inhibiting, anti-inflammatory, biologic medication. It binds to tumor necrosis factor-alpha (TNF\u03b1), which normally binds to TNF\u03b1 receptors, leading to the"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E1",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 56,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 57,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 58,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.9999048678529551,
+        "text": "Blood test may identify gestational diabetes risk in first trimester"
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9999006022903192,
+        "text": "Gestational diabetes: test appears to find more women with gestational diabetes than only screening women with risk factors. It is not clear how these screening tests affect the rest of the pregnancy. Future research should include how the method of screening impacts the mother and baby. Opinions differ about optimal screening and diagnostic measures, in part due to differences in population risks, cost-effectiveness considerations, and lack of an evidence base to support large national screening programs. The most elaborate regimen entails a random blood glucose test during a booking visit, a screening glucose challenge test around 24\u201328 weeks' gestation, followed by an"
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 0.9999006022903192,
+        "text": "Gestational diabetes: to the mother and baby if gestational diabetes remains untreated. When a plasma glucose level is found to be higher than 126 mg/dl (7.0 mmol/l) after fasting, or over 200 mg/dl (11.1 mmol/l) on any occasion, and if this is confirmed on a subsequent day, the diagnosis of GDM is made, and no further testing is required. These tests are typically performed at the first antenatal visit. They are simple to administer and inexpensive, but have a lower test performance compared to the other tests, with moderate sensitivity, low specificity and high false positive rates. The screening glucose challenge test"
+      },
+      {
+        "id": "E3",
+        "type": "evidence",
+        "strength": 0.9999006022903192,
+        "text": "Gestational diabetes: low blood glucose levels (hypoglycemia). A number of screening and diagnostic tests have been used to look for high levels of glucose in plasma or serum in defined circumstances. One method is a stepwise approach where a suspicious result on a screening test is followed by diagnostic test. Alternatively, a more involved diagnostic test can be used directly at the first prenatal visit for a woman with a high-risk pregnancy. (for example in those with polycystic ovarian syndrome or acanthosis nigricans). Non-challenge blood glucose tests involve measuring glucose levels in blood samples without challenging the subject with glucose solutions. A"
+      },
+      {
+        "id": "E4",
+        "type": "evidence",
+        "strength": 0.9999006022903192,
+        "text": "Gestational diabetes: setting of insulin resistance. Risk factors include being overweight, previously having gestational diabetes, a family history of type 2 diabetes, and having polycystic ovarian syndrome. Diagnosis is by blood tests. For those at normal risk screening is recommended between 24 and 28 weeks' gestation. For those at high risk testing may occur at the first prenatal visit. Prevention is by maintaining a healthy weight and exercising before pregnancy. Gestational diabetes is treated with a diabetic diet, exercise, and possibly insulin injections. Most women are able to manage their blood sugar with a diet and exercise. Blood sugar testing among those"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E3",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 59,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 60,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.9999024358810216,
+        "text": "Ebola is real, Congo president tells skeptical population."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9999011230430052,
+        "text": "2017 Democratic Republic of the Congo Ebola virus outbreak: DRC Minister of Public Health, Dr Oly Ilunga Kalenga, declared that the country had passed a 42-day period with no new recorded cases, and therefore the outbreak was over. A subsequent outbreak of Ebola was declared by WHO on 8 May 2018, in the northwest Province of \u00c9quateur. The first \"situation report\" from the WHO on 15 May 2017 listed 19 suspected cases and 3 deaths. The first person to request treatment was a 39-year-old male. On 16 May, the WHO indicated that there had been 21 suspected cases and 3 deaths. Approximately 400 additional individuals were being monitored in"
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 0.9999011230430052,
+        "text": "2017 Democratic Republic of the Congo Ebola virus outbreak: 83% of simulated scenarios predict no further cases in the next 30 days.\" According to the U.S. Centers for Disease Control and Prevention, \"Ebola ... is a rare and deadly disease caused by infection with one of the Ebola virus species. Ebola can cause disease in humans and nonhuman primates (monkeys, gorillas, and chimpanzees).\" Ebola was first identified in 1976 near the Ebola River in the DRC. More than 11,300 people died in the 2013 to 2016 Ebola outbreak in West Africa. According to the WHO's \"Global Health Observatory\", the DRC's population in 2015 was 77,267,000. On 1 July 2017,"
+      },
+      {
+        "id": "E3",
+        "type": "evidence",
+        "strength": 0.9999011230430052,
+        "text": "2014 Democratic Republic of the Congo Ebola virus outbreak: since the last reported case tested negative for the second time and was discharged. It was stated that the DRC would therefore be declared free of Ebola disease 42 days after the date of the second negative test if no new cases were reported. The outbreak was declared over on 15 November 2014. In October 2014, it was reported that more recent findings suggested that there may have been several previous cases. The husband of the woman that was believed to have been the index case told an investigation team that shortly before she became ill she had visited two"
+      },
+      {
+        "id": "E4",
+        "type": "evidence",
+        "strength": 0.9999011230430052,
+        "text": "2018 E\u0301quateur province Ebola outbreak: Health Emergency of International Concern; if the outbreak expands or spreads internationally, the committee will reassess the situation. US President Donald Trump has advocated rescinding Ebola funding and most financing for State Department emergency responses. National Security Advisor John Bolton removed the National Security Council\u2019s health security chief on the day that the Ebola outbreak was declared, shutting down the entire epidemic prevention office.The U.S. Centers for Disease Control and Prevention says \u201cabout five\u201d of its staff advise the Congolese government. CDC presence appears to be smaller than West African countries'. The U.S. Agency for International Development promised $1 million"
+      },
+      {
+        "id": "E5",
+        "type": "evidence",
+        "strength": 0.9999011230430052,
+        "text": "Ebola virus disease: died, and people in Yambuku began to panic. The country's Minister of Health and Zaire President Mobutu Sese Seko declared the entire region, including Yambuku and the country's capital, Kinshasa, a quarantine zone. No-one was permitted to enter or leave the area, and roads, waterways, and airfields were placed under martial law. Schools, businesses and social organizations were closed. Researchers from the Centers for Disease Control and Prevention (CDC), including Peter Piot, co-discoverer of Ebola, later arrived to assess the effects of the outbreak, observing that \"the whole region was in panic.\" Piot concluded that Belgian nuns had inadvertently started"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E4",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 61,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 62,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.7499005936298626,
+        "text": "Wyeth Wins U.S. OK to Sell Pristiq for Depression."
+      },
+      {
+        "id": "E3",
+        "type": "evidence",
+        "strength": 0.5,
+        "text": "Desvenlafaxine: was made available in the US. On February 4, 2009, Health Canada approved use of desvenlafaxine for treatment of depression. Pristiq is now available in Canadian pharmacies. In 2008, Wyeth withdrew its application for Ellefore, the product under review for treatment of major depressive disorder in the European Union. In 2012, Pfizer received authorization in Spain to market Pristiq for the disorder in 50 mg and 100 mg tablets. Desvenlafaxine is classified as a schedule 4 (prescription only) drug in Australia. It was listed on the PBS (Pharmaceutical Benefits Scheme) in 2008 for the treatment of MDD (Major Depressive Disorders)."
+      }
+    ],
+    "edges": [
+      {
+        "source": "E3",
+        "target": "claim",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 63,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 9.513214704502355e-05,
+        "text": "Jury clears J&J of liability in New Jersey talc cancer case."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9999006022903192,
+        "text": "Johnson & Johnson: cancer after using the company's talc-based products like Johnson's Baby Powder for feminine hygiene. The verdict included $70 million in compensatory damages and $347 million in punitive damages. J&J said they will appeal the verdict. In October 2017, the Missouri Eastern District appeals court on Tuesday threw out a $72 million jury verdict. The appeals court ruled 3-0 that Jacqueline Fox's lawsuit lacked jurisdiction in Missouri because of a U.S. Supreme Court decision that imposed limits on where injury lawsuit can be filed which lawsuit's jurisdiction requires a stronger connection between the forum state and a plaintiff's claims. Fox, 62,"
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 0.9999006022903192,
+        "text": "Johnson's Baby: 2016, J&J was ordered to pay $72 million in damages to the family of Jackie Fox, a 62-year-old woman who died of ovarian cancer in 2015. She had used Johnson's Baby Powder for many years. J&J claimed that the safety of cosmetic talc is supported by decades of scientific evidence and it plans to appeal the verdict. The British charity, Ovacome was quoted as saying that while there were 16 studies which showed that using talc increased the risk of ovarian cancer by around a third, and a 2013 review of US studies had similar results for genital, but not"
+      },
+      {
+        "id": "E3",
+        "type": "evidence",
+        "strength": 0.9999006022903192,
+        "text": "Levy Konigsberg: landmark talc case against a manufacturer for selling talc that was contaminated with asbestos. The firm secured a jury verdict for a man who developed mesothelioma from working in a factory that manufactured cosmetic talc products between 1967 and 1975. The firm has also litigated asbestos cases against manufacturers and suppliers of asbestos-containing automotive products. In 2008, the firm obtained a $30.3 million jury verdict in Bergen County, New Jersey in a case in which a man died from mesothelioma at the age of 50. The man was exposed to asbestos from working a few summers at a General Motors"
+      },
+      {
+        "id": "E5",
+        "type": "evidence",
+        "strength": 0.9999006022903192,
+        "text": "Talc: female genital area. Yet no federal agency in the US acted to remove talcum powder from the market or add warnings. In February 2016, as the result of a lawsuit against Johnson & Johnson (J&J), a St. Louis jury awarded $72 million to the family of an Alabama woman who died from ovarian cancer. The family claimed that the use of talcum powder was responsible for her cancer. In May 2016, a South Dakota woman was awarded $55 million as the result of another lawsuit against J&J. The woman had used Johnson & Johnson's Baby Powder for more than 35"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E1",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E2",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E3",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E5",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E3",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 64,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 3.8854555073078067e-07,
+        "text": "More women are victims of domestic violence on Super Bowl Sunday than on any other day of the year."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9998011872598469,
+        "text": "Who Stole Feminism?: Bowl game, went too far in claiming that \"no study shows that Super Bowl Sunday is in any way different from other days in the amount of domestic violence\". Hammer said that Sommers ignored a variety of studies that showed increased domestic violence during the Super Bowl. The anthropologist Melvin Konner wrote that, like Warren Farrell's \"The Myth of Male Power\" (1993), \"Who Stole Feminism?\" is a good antidote to the way in which \"real knowledge about sex roles...tends to get buried in postmodernist rhetoric.\" Anne-Marie Kinahan of Wilfrid Laurier University places \"Who Stole Feminism?\" alongside Rene Denfeld's \"The New"
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 0.9998011872598469,
+        "text": "Who Stole Feminism?: the assessment that Sommers wrote her book primarily to sell many copies, the book represents a threat in its attempt to redefine feminism. The criminologist Samuel Walker Kiewit was impressed by Sommers' debunking of the statistic that there is a 40% increase in domestic violence incidents associated with the annual Super Bowl game, but wrote that she ignored the underlying seriousness of the domestic violence problem. The sociologist Rhonda Hammer of University of California, Los Angeles, writes that Sommers, despite her debunking of the figure that there is a 40% increase of domestic violence incidents associated with the annual Super"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E1",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E2",
+        "target": "E1",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 65,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.2500994063701377,
+        "text": "Donald Trump Says 25 percent of U.S. Muslims \"agreed that violence against Americans here in the United States is justified as a part of the global jihad."
+      },
+      {
+        "id": "E4",
+        "type": "evidence",
+        "strength": 0.5,
+        "text": "Islam and violence: British Muslims, and 8% of American Muslims thought suicide bombings are often or sometimes justified. The figure was unchanged \u2013 still 8% \u2013 for American Muslims by 2011. Polls have found Muslim-Americans to report less violent views than any other religious group in America. 89% of Muslim-Americans claimed that the killing of civilians is never justified, compared to 71% of Catholics and Protestants, 75% of Jews, and 76% of atheists and non-religious groups. The Pew Research Center's 2013 poll showed that the majority of 14,244 Muslim, Christian and other respondents in 14 countries with substantial Muslim populations are concerned about"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E4",
+        "target": "claim",
+        "relation": "attack"
+      }
+    ]
+  },
+  {
+    "index": 66,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 67,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 68,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 69,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 70,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 71,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 72,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 73,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.9998943030802996,
+        "text": "The snakehead fish can survive on land. "
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9998924992701883,
+        "text": "Snakehead (fish): TV series \"River Monsters\", Jeremy Wade shows a dramatization of a snakehead, \"the fish from hell\", stalking an unsuspecting baby and Chihuahua. With the help of a snakehead researcher, however, Wade shows that although it is capable of living outside of water and is able to move on land, its weak pectoral muscles make movement difficult and render the snakehead an unlikely \"stalker\" on land. Snakehead (fish) The snakeheads are members of the freshwater perciform fish family Channidae, native to parts of Africa and Asia. These elongated, predatory fish are distinguished by their long dorsal fins, large mouths, and shiny"
+      },
+      {
+        "id": "E3",
+        "type": "evidence",
+        "strength": 0.9998924992701883,
+        "text": "Ceylon snakehead: Ceylon snakehead The Ceylon snakehead (\"Channa orientalis\") is a snakehead species. They are freshwater fish that grow to a maximum size of approximately , so are a member of the informal dwarf snakeheads. They originate from southwest of the island of Sri Lanka. They are predatory fish that feed on plankton, insects, and sometimes small amphibians. They can breathe on land for short periods of time because they have accessory respiratory organs through which they can use atmospheric oxygen to breathe. During wet weather, they can survive on land for more than four days, but if their bodies dry up,"
+      },
+      {
+        "id": "E4",
+        "type": "evidence",
+        "strength": 0.9998924992701883,
+        "text": "Snakehead (fish): Snakehead (fish) The snakeheads are members of the freshwater perciform fish family Channidae, native to parts of Africa and Asia. These elongated, predatory fish are distinguished by their long dorsal fins, large mouths, and shiny teeth. They breathe air with gills, which allows them to migrate short distances over land. They have suprabranchial organs which develop when they grow older, which are primitive forms of labyrinth organs. The two extant genera are \"Channa\" in Asia and \"Parachanna\" in Africa, consisting of about 40 species. They are valuable as a food source and have become notorious as an intentionally released invasive"
+      },
+      {
+        "id": "E5",
+        "type": "evidence",
+        "strength": 0.9998924992701883,
+        "text": "Lake Erie: have been described as \"greedy giants that suck plankton from the water with the brutal efficiency of vacuum cleaners\" and scientists worry that they may unravel the \"aquatic food web\" by crowding out other species. There was concern in 2007 that snakehead fish could get into the Great Lakes area. Officials warn that if the fish invades, it could \"decimate the aquatic food chain\". A YouTube video mentioned in a newspaper account has a man claiming that the fish could \"bite your entire hand off\". The fish can reach in length and \"survive out of water for four days\" and"
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 1.719117297063555e-05,
+        "text": "Borna snakehead: dried streams in forests.\u201d This is a manifestation of behavior common to snakeheads \u2013 they need atmospheric air, which they receive by way of a suprabranchial organ (a primitive form of a labyrinth organ). From a young age, \"C. amphibeus\" can survive in a low-oxygen water habitat, but if deprived of surface access, adult snakeheads can die from the lack of oxygen. Due to its smaller size (in comparasion to other snakeheads), the Chel snakehead is slightly easier to keep in aquaria. However, there have been several episodes when snakeheads have been released into non-endemic environments, and the danger of"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E2",
+        "relation": "attack"
+      },
+      {
+        "source": "E3",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E2",
+        "relation": "attack"
+      },
+      {
+        "source": "E4",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E2",
+        "relation": "attack"
+      },
+      {
+        "source": "E5",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E2",
+        "relation": "attack"
+      },
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E2",
+        "target": "E1",
+        "relation": "attack"
+      },
+      {
+        "source": "E2",
+        "target": "E3",
+        "relation": "attack"
+      },
+      {
+        "source": "E2",
+        "target": "E4",
+        "relation": "attack"
+      },
+      {
+        "source": "E2",
+        "target": "E5",
+        "relation": "attack"
+      }
+    ]
+  },
+  {
+    "index": 74,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 75,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.7499005936298626,
+        "text": "China reports one more H7N9 bird flu death."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.5,
+        "text": "Influenza A virus subtype H7N9: winter seasons. In August, Guangdong province confirmed its first case of H7N9 bird flu, a 51-year-old woman in critical condition after having been admitted to a hospital on August 3. , China reported to the WHO that \"rare and sporadic human infections with H7N9\" have been reported with \"the total number of cases reported to 137, including 45 deaths\" in China. The CDC and U.S. government H7N9 preparedness efforts have continued over the summer and are \"continuing to watch this situation closely\". , two cases of H7N9 were reported in Hong Kong. Hong Kong reported its first death from H7N9"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 76,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 77,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.7499005936298626,
+        "text": "Claims of virgin births in U.S. near 1 percent: study."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.5,
+        "text": "Amy H. Herring: and of first intercourse reported in separate questions by a sample of American women, and determined that according to this data one out of every 200 women in the US had given virgin birth. Herring stated that she found it \"highly unlikely\" that these women believed themselves to be virgins at the time of their children's births, and suggested that the result might instead be a combination of unintentional inaccuracies by the subjects and of respondents being unwilling to admit to having intercourse. In 2010, Herring was elected as a Fellow of the American Statistical Association. She won the Gertrude"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 78,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 79,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 80,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.7499005936298626,
+        "text": "Britain gives scientist go-ahead to genetically modify human embryos."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.5,
+        "text": "Kathy Niakan: Institute she is investigating the mechanisms of lineage specification in human embryos and stem cells. In February 2016 Niakan was given the go-ahead by the UK Human Fertilisation and Embryology Authority to genetically modify human embryos. The embryos were to be destroyed after seven days. She planned to use the CRISPR technique to answer questions like what genetic faults cause some women to miscarry, what causes infertility and what is crucial for a healthy embryo. In 2017 her lab published the first major study using CRISPR-Cas9 in human embryos in Nature, demonstrating that the transcription factor Oct4 is essential for"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 81,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 82,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.999998718275112,
+        "text": "New drugs show rare promise against advanced breast cancer."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9998010203228128,
+        "text": "MTOR inhibitors: non-small-cell lung cancer, and other advanced solid tumors. While common toxicities included nausea, stomatitis, and anemia; responses were noted. Everolimus is the second novel Rapamycin analog. From March 30, 2009 to May 5, 2011 the U.S. FDA approved everolimus for the treatment of advanced renal cell carcinoma after failure of treatment with sunitinib or sorafenib, subependymal giant cell astrocytoma (SEGA) associated with tuberous sclerosis (TS), and progressive neuroendocrine tumors of pancreatic origin (PNET). In July and August 2012, two new indications were approved, for advanced hormone receptor-positive, HER2-negative breast cancer in combination with exemestane, and pediatric and adult patients with"
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 0.9998010203228128,
+        "text": "Masato Tanabe: A compound discovered in a previous contract from NIH showed potential - it acted like \"anti-estrogen\" in the breasts and uterus but like normal estrogen elsewhere in the body, and were thus more \"tissue-selective\". A contract was proposed to Taiho Pharmaceutical in July 1996, and within six years and slightly under $3 million (an unusually short amount of time) two new drugs were discovered and tested on people (particularly people for which tamoxifen has failed): SR16234 and SR16287. The first of those, SR16234, also inhibited the growth of blood vessels (angiogenesis) and accelerated the death of cancer cells (apoptosis) and"
+      },
+      {
+        "id": "E5",
+        "type": "evidence",
+        "strength": 2.719723563631002e-07,
+        "text": "Veliparib: trials, for advanced ovarian cancer, triple-negative breast cancer and in non-small cell lung cancer (NSCLC). In 2017, AbbVie reported that veliparib failed to improve outcomes in the triple-negative breast cancer and NSCLC trials. Veliparib Veliparib (ABT-888) is a potential anti-cancer drug acting as a PARP inhibitor. It kills cancer cells by blocking a protein called PARP, thereby preventing the repair of DNA or genetic damage in cancer cells and possibly making them more susceptible to anticancer treatments. Veliparib may make whole brain radiation treatment work more effectively against brain metastases from NSCLC. It has been shown to potentiate the effects"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E5",
+        "relation": "attack"
+      },
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E5",
+        "relation": "attack"
+      },
+      {
+        "source": "E5",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E5",
+        "target": "E1",
+        "relation": "attack"
+      },
+      {
+        "source": "E5",
+        "target": "E2",
+        "relation": "attack"
+      }
+    ]
+  },
+  {
+    "index": 83,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.999919165319888,
+        "text": "House protects pizza as a vegetable."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9999005161114115,
+        "text": "National School Lunch Act: that pressure was placed upon officials voting on the bill by lobbyists representing pizza manufacturers and cheese producers, as it was seen to threaten the ability of schools to serve pizza and credit it with the same level of nutritional value as they heretofore had. Many critics have sardonically summarized the situation as \"Pizza is now a vegetable\" or \"Congress decides pizza is a vegetable\". However, others have pointed out that 1/8 cup of tomato paste stacks up remarkably well against a 1/2 cup of vegetables nutritionally, albeit with an excessive amount of sodium that could be argued to reduce"
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 0.9999005161114115,
+        "text": "Ketchup as a vegetable: a bill that barred the USDA from changing its nutritional guidelines for school lunches. The proposed changes would have limited the amount of potatoes allowed in lunches, required more green vegetables, and declared a half-cup of tomato paste to count as a serving of vegetables, rather than the current standard of 2 tablespoons. The blocking of these proposed higher standards meant that the smaller amount of tomato paste in pizza could continue to be counted as a vegetable in school lunches. The move resulted in widespread mockery, with headlines saying Congress had declared pizza to be a vegetable. The blocking"
+      },
+      {
+        "id": "E3",
+        "type": "evidence",
+        "strength": 0.9999005161114115,
+        "text": "Ketchup as a vegetable: could count as a vegetable. A similar controversy arose in 2011, when Congress passed a bill prohibiting the USDA from increasing the amount of tomato paste required to constitute a vegetable; the bill allowed pizza with two tablespoons of tomato paste to qualify as a vegetable. The Omnibus Reconciliation Act of 1980, signed into law by President Jimmy Carter, reduced the Federal School Lunch and Child Nutrition Programs budget by approximately eight percent. Building upon these reductions, the Omnibus Reconciliation Act of 1981 (passed as the Gramm-Latta Budget) made further spending cuts to the Federal School Lunch Program decreasing its"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E2",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 84,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 85,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 86,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.7499005936298626,
+        "text": "\u2018Critical moment\u2019 for firms amid retirements, opioid crisis."
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 0.5,
+        "text": "Patrick J. Kennedy: mental health advocates, business leaders, and government agencies around a common set of principles, including full implementation of the Federal Parity Law. In 2018, \"Politico\" termed Kennedy \"the unlikely go-to player for companies seeking to benefit from the Trump administration\u2019s multibillion-dollar response to the opioid crisis\". Kennedy sits on the boards of eight corporations involved with the government's response to the drug crisis. He \"holds an equity stake in the firms\" and \"collects director fees\" from the latter organizations, many of which \"stand to benefit from fresh efforts in Congress and the Trump administration to combat the opioid crisis\". As"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 87,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.7499005936298626,
+        "text": "Eating more fish could prevent Parkinson's disease"
+      },
+      {
+        "id": "E5",
+        "type": "evidence",
+        "strength": 0.5,
+        "text": "Dietary management of Parkinson's disease: Parkinson\u2019s disease. Promising research shows that a diet consisting of foods typically associated with a Mediterranean diet may act as a preventative measure for the disease due to the high levels of antioxidants found in within these foods such as complex phenols, vitamins C and E, and carotenoids. A typical Mediterranean diet consists of a high intake of vegetables, legumes, fruits, and cereals, olive oil (unsaturated fatty acids), and fish and low to moderate intake of foods such as dairy, meats, poultry. Other research has shown that diets rich in dairy products result in a higher likelihood of developing Parkinson\u2019s"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E5",
+        "target": "claim",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 88,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 89,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 90,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 91,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.5,
+        "text": "Robotic surgeries costlier but safer: study"
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.3820539709400052,
+        "text": "Robot-assisted surgery: smoother, feedback-controlled motions than could be achieved by a human hand. The main object of such smart instruments is to reduce or eliminate the tissue trauma traditionally associated with open surgery without requiring more than a few minutes' training on the part of surgeons. This approach seeks to improve open surgeries, particularly cardio-thoracic, that have so far not benefited from minimally-invasive techniques. Robotic surgery has been criticized for its expense, by one estimate costing $1,500 to $2000 more per patient. Major advances aided by surgical robots have been remote surgery, minimally invasive surgery and unmanned surgery. Due to robotic use,"
+      },
+      {
+        "id": "E3",
+        "type": "evidence",
+        "strength": 0.3820539709400052,
+        "text": "Robot-assisted surgery: chose the procedure based on expectations of decreased morbidity, improved outcomes, reduced blood loss and less pain. Higher expectations may explain higher rates of dissatisfaction and regret. Compared with other minimally invasive surgery approaches, robot-assisted surgery gives the surgeon better control over the surgical instruments and a better view of the surgical site. In addition, surgeons no longer have to stand throughout the surgery and do not tire as quickly. Naturally occurring hand tremors are filtered out by the robot's computer software. Finally, the surgical robot can continuously be used by rotating surgery teams. Critics of the system, including the"
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 0.3820539709400052,
+        "text": "Robot-assisted surgery: the hefty cost of the robotic system it is not clear that it is cost-effective for hospitals and physicians despite any benefits to patients since there is no additional reimbursement paid by the government or insurance companies when the system is used. Robot-assisted pancreatectomies have been found to be associated with \"longer operating time, lower estimated blood loss, a higher spleen-preservation rate, and shorter hospital stay[s]\" than laparoscopic pancreatectomies; there was \"no significant difference in transfusion, conversion to open surgery, overall complications, severe complications, pancreatic fistula, severe pancreatic fistula, ICU stay, total cost, and 30-day mortality between the two groups.\""
+      },
+      {
+        "id": "E5",
+        "type": "evidence",
+        "strength": 0.3820539709400052,
+        "text": "Robot-assisted surgery: For surgical removal of the uterus and cervix for early cervical cancer robotic and laparoscopic surgery resulted in similar outcomes with respect to the cancer. As of 2004, three types of heart surgery are being performed on a routine basis using robotic surgery systems. These three surgery types were: Many studies have been undertaken in order to examine the role of robotic procedures in the field of colorectal surgery. Results to date indicate that robotic-assisted colorectal procedures outcomes are \"no worse\" than the results in the now \"traditional\" laparoscopic colorectal operations. Robotic-assisted colorectal surgery appears to be safe as well."
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E2",
+        "relation": "attack"
+      },
+      {
+        "source": "E1",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E5",
+        "relation": "attack"
+      },
+      {
+        "source": "E3",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E5",
+        "relation": "attack"
+      },
+      {
+        "source": "E3",
+        "target": "E2",
+        "relation": "attack"
+      },
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E2",
+        "target": "E1",
+        "relation": "attack"
+      },
+      {
+        "source": "E2",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E3",
+        "relation": "attack"
+      },
+      {
+        "source": "E5",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E5",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E3",
+        "relation": "attack"
+      },
+      {
+        "source": "E5",
+        "target": "E1",
+        "relation": "attack"
+      }
+    ]
+  },
+  {
+    "index": 92,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.5,
+        "text": "On Syria, \"a\u00a0lot of the allies signed on. At the last minute, Obama backed off."
+      },
+      {
+        "id": "E4",
+        "type": "evidence",
+        "strength": 0.3333986176015727,
+        "text": "Barack Obama: programs run by the CIA and the Pentagon to train anti-Assad rebels. The Pentagon-run program was later found to have failed and was formally abandoned in October 2015. In the wake of a chemical weapons attack in Syria, formally blamed by the Obama administration on the Assad government, Obama chose not to enforce the \"red line\" he had pledged and, rather than authorize the promised military action against Assad, went along with the Russia-brokered deal that led to Assad giving up chemical weapons; however attacks with chlorine gas continued. In 2014, Obama authorized an air campaign aimed primarily at ISIL,"
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.3333986176015727,
+        "text": "American-led intervention in the Syrian Civil War: a move sought by Russia. In his address to the nation on 10 September 2014, U.S. President Obama announced his intention to bomb ISIL targets in Syria and called on Congress to authorize a program to train and arm rebels who were fighting ISIL and the Syrian forces of Bashar al-Assad. For the first time, he authorized direct attacks against the militant group in Syria. In his address, he said the United States were going on offensive, launching \"a steady, relentless effort to take out\" the group \"wherever they exist.\" Obama also announced creating of a broader coalition against ISIL."
+      }
+    ],
+    "edges": [
+      {
+        "source": "E4",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E1",
+        "relation": "attack"
+      },
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E1",
+        "target": "E4",
+        "relation": "attack"
+      }
+    ]
+  },
+  {
+    "index": 93,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.999998718275112,
+        "text": "Testosterone gel linked to heart problems."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9998010203228128,
+        "text": "Testosterone (medication): safety of testosterone have been established for low testosterone levels due to aging. The FDA has required that testosterone pharmaceutical labels include warning information about the possibility of an increased risk of heart attacks and stroke. They have also required the label include concerns about abuse and dependence. Adverse effects of testosterone supplementation may include increased cardiovascular events (including strokes and heart attacks) and deaths based on three peer-reviewed studies involving men taking testosterone replacement. In addition, an increase of 30% in deaths and heart attacks in older men has been reported. Due to an increased incidence of adverse cardiovascular"
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 0.9998010203228128,
+        "text": "Testosterone and the cardiovascular system: can be attributed to its conversion via aromatase activity in adipose tissue into 17-beta estradiol and its subsequent activation of estrogen alpha-receptors; thus, more testosterone leads to greater conversion into estrogen and thus a healthier lipid profile. It should be noted that this understanding has been determined in several studies, although results of these studies are contradictory. Testosterone replacement therapy in men diagnosed with pre-existing heart disease has been related to an increased risk of myocardial infarction. Furthermore, recent research has linked testosterone replacement therapy to an increase in deaths and other cardiovascular occurrences in men whom document a history"
+      },
+      {
+        "id": "E3",
+        "type": "evidence",
+        "strength": 2.719723563631002e-07,
+        "text": "Testosterone and the cardiovascular system: men has also been reported in men with heart failure, whereby the severity of the disease is proportional to the reduction in systemic testosterone levels. Although a direct mechanism of action is not fully understood, some research attribute low testosterone to advancing side effects of heart failure, such as decreased exercise ability, decreased muscle mass, fatigue/dyspnea and cachexia. Physiological testosterone is crucial for normal functionality in men. Long-term administration of physiological testosterone in mouse models has shown to be atheroprotective by increasing the HDL portion of cholesterol (the anti-atherosclerotic cholesterol). The beneficial action of testosterone in elevating the HDL fraction"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E3",
+        "relation": "attack"
+      },
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E3",
+        "relation": "attack"
+      },
+      {
+        "source": "E3",
+        "target": "claim",
+        "relation": "attack"
+      },
+      {
+        "source": "E3",
+        "target": "E1",
+        "relation": "attack"
+      },
+      {
+        "source": "E3",
+        "target": "E2",
+        "relation": "attack"
+      }
+    ]
+  },
+  {
+    "index": 94,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 95,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 96,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.999919165319888,
+        "text": "Southeast Asian nations, among worst ocean polluters, aim to curb plastic debris."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9999005161114115,
+        "text": "Marine debris: bags below 2000m depth off the west coast of North America and around Hawaii. The 10 largest emitters of oceanic plastic pollution worldwide are, from the most to the least, China, Indonesia, Philippines, Vietnam, Sri Lanka, Thailand, Egypt, Malaysia, Nigeria, and Bangladesh, largely through the rivers Yangtze, Indus, Yellow, Hai, Nile, Ganges, Pearl, Amur, Niger, and the Mekong, and accounting for \"90 percent of all the plastic that reaches the world's oceans.\" An estimated 10,000 containers at sea each year are lost by container ships, usually during storms. One spillage occurred in the Pacific Ocean in 1992, when thousands of"
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 0.9999005161114115,
+        "text": "Gulf of Thailand: \"Severe erosion\", more than five metres of coastline loss per year, afflicts 670 kilometres of that total. At least some of the erosion is attributable to the clearing of mangrove forests to make way for shrimp farms. In February 2017, a 10 kilometer-long patch of plastic refuse was found floating off Chumphon Province. Thailand is among the world's worst plastic polluters. More than half of \"land-based plastic-waste leakage\" into the sea originates from just five countries: China, Indonesia, the Philippines, Thailand, and Vietnam. The Thai Marine and Coastal Resources Department has noted that at least 300 sea animals on average\u201460"
+      },
+      {
+        "id": "E3",
+        "type": "evidence",
+        "strength": 0.9999005161114115,
+        "text": "Plastic pollution: published by \"Science\", Jambeck \"et al\" (2015) estimated that the 10 largest emitters of oceanic plastic pollution worldwide are, from the most to the least, China, Indonesia, Philippines, Vietnam, Sri Lanka, Thailand, Egypt, Malaysia, Nigeria, and Bangladesh. In a study published by \"Environmental Science & Technology\", Schmidt \"et al\" (2017) calculated that the Yangtze, Indus, Yellow River, Hai River, Nile, Ganges, Pearl River, Amur, Niger, and the Mekong \"transport 88\u201395% of the global [plastics] load into the sea.\" A source that has caused concern is landfills. Most waste in the form of plastic in landfills are single-use items such as"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E2",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 97,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.7499005936298626,
+        "text": "Senators: Double funding for universal flu vaccine research."
+      },
+      {
+        "id": "E5",
+        "type": "evidence",
+        "strength": 0.5,
+        "text": "2017\u201318 United States flu season: cases in seven days, making it the state's highest weekly total on record. On February 11, 2018, United States Senator Amy Klobuchar from Minnesota announced a new bill called the Flu Vaccine Act, calling for further research on a better vaccine at the US National Institutes of Health. At the time, there had been 400 outbreaks of flu that season in Minnesota's schools, and 130 outbreaks in long-term care facilities, with one child in the state dying. Additionally, Klobuchar continued to push the US Food and Drug Administration to fix the national IV bag and saline shortage, for adversely affecting"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E5",
+        "target": "claim",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 98,
+    "nodes": [
+      {
+        "id": "claim",
+        "type": "claim",
+        "strength": 0.9999024358810216,
+        "text": "Jury awards more than $70M to woman in baby powder lawsuit."
+      },
+      {
+        "id": "E1",
+        "type": "evidence",
+        "strength": 0.9999011230430052,
+        "text": "Johnson & Johnson: cancer after using the company's talc-based products like Johnson's Baby Powder for feminine hygiene. The verdict included $70 million in compensatory damages and $347 million in punitive damages. J&J said they will appeal the verdict. In October 2017, the Missouri Eastern District appeals court on Tuesday threw out a $72 million jury verdict. The appeals court ruled 3-0 that Jacqueline Fox's lawsuit lacked jurisdiction in Missouri because of a U.S. Supreme Court decision that imposed limits on where injury lawsuit can be filed which lawsuit's jurisdiction requires a stronger connection between the forum state and a plaintiff's claims. Fox, 62,"
+      },
+      {
+        "id": "E2",
+        "type": "evidence",
+        "strength": 0.9999011230430052,
+        "text": "Johnson & Johnson: still went ahead and made the product available. In February 2016, J&J was ordered to pay $72 million in damages to the family of Jacqueline Fox, a 62-year-old woman who died of ovarian cancer in 2015: the company said it would appeal. By March 2017, over 1,000 U.S. women had sued J&J for covering up the possible cancer risk from its Baby Powder product; the company says that 70 percent of its Baby Powder is used by adults. In August 2017, a California jury ordered Johnson & Johnson to pay $417 million to a woman who claimed she developed ovarian"
+      },
+      {
+        "id": "E3",
+        "type": "evidence",
+        "strength": 0.9999011230430052,
+        "text": "Talc: years before being diagnosed with ovarian cancer in 2011. In October 2016, a St. Louis jury awarded $70.1 million to a Californian woman with ovarian cancer who had used Johnson's Baby Powder for 45 years. In August 2017, a Los Angeles jury awarded $417 million to a Californian woman, Eva Echeverria, who developed ovarian cancer as a \"proximate result of the unreasonably dangerous and defective nature of talcum powder\", her lawsuit against Johnson & Johnson stated. At least 1,200 to 2,000 other talcum powder-related lawsuits are pending. On 20 October 2017, Los Angeles Superior Court judge Maren Nelson, dismissed the"
+      },
+      {
+        "id": "E4",
+        "type": "evidence",
+        "strength": 0.9999011230430052,
+        "text": "Johnson's Baby: 2016, J&J was ordered to pay $72 million in damages to the family of Jackie Fox, a 62-year-old woman who died of ovarian cancer in 2015. She had used Johnson's Baby Powder for many years. J&J claimed that the safety of cosmetic talc is supported by decades of scientific evidence and it plans to appeal the verdict. The British charity, Ovacome was quoted as saying that while there were 16 studies which showed that using talc increased the risk of ovarian cancer by around a third, and a 2013 review of US studies had similar results for genital, but not"
+      },
+      {
+        "id": "E5",
+        "type": "evidence",
+        "strength": 0.9999011230430052,
+        "text": "Talc: female genital area. Yet no federal agency in the US acted to remove talcum powder from the market or add warnings. In February 2016, as the result of a lawsuit against Johnson & Johnson (J&J), a St. Louis jury awarded $72 million to the family of an Alabama woman who died from ovarian cancer. The family claimed that the use of talcum powder was responsible for her cancer. In May 2016, a South Dakota woman was awarded $55 million as the result of another lawsuit against J&J. The woman had used Johnson & Johnson's Baby Powder for more than 35"
+      }
+    ],
+    "edges": [
+      {
+        "source": "E1",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E1",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E2",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E4",
+        "relation": "support"
+      },
+      {
+        "source": "E3",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E4",
+        "target": "E5",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "claim",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E1",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E2",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E3",
+        "relation": "support"
+      },
+      {
+        "source": "E5",
+        "target": "E4",
+        "relation": "support"
+      }
+    ]
+  },
+  {
+    "index": 99,
+    "nodes": [],
+    "edges": []
+  },
+  {
+    "index": 100,
+    "nodes": [],
+    "edges": []
   }
 ]

@@ -181,7 +181,7 @@ def run_full_experiment(K, model_name="llama3.1", out_dir="results"):
 # === Main Loop ===
 if __name__=="__main__":
     Ks = [5,10]
-    MODELS = ["gemma3:27b"]
+    MODELS = ["gemma3:270m","gemma3:1b","gemma3:4b","gemma3:12b"]
     base_dir = "results"
     for K in Ks:
         for MODEL in MODELS:

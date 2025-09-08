@@ -51,5 +51,9 @@
   {
     "model": "gpt-oss:120b",
     "K": 5
+  },
+  {
+    "model": "gpt-oss:20b",
+    "K": 10
   }
 ]

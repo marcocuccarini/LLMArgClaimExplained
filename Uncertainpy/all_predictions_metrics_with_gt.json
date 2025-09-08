@@ -4,16 +4,16 @@
         "model": "gpt-oss:20b",
         "K": 10,
         "prompt": "unknown",
-        "accuracy": 0.8081395348837209,
-        "f1_score": 0.7461424929558567,
+        "accuracy": 0.7956204379562044,
+        "f1_score": 0.7261564820102798,
         "confusion_matrix": {
-            "TRUE_pred_TRUE": 112,
-            "TRUE_pred_FALSE": 20,
-            "FALSE_pred_TRUE": 13,
-            "FALSE_pred_FALSE": 27
+            "TRUE_pred_TRUE": 178,
+            "TRUE_pred_FALSE": 28,
+            "FALSE_pred_TRUE": 28,
+            "FALSE_pred_FALSE": 40
         },
-        "num_samples": 172,
-        "invalid_percentage": 49.56
+        "num_samples": 274,
+        "invalid_percentage": 50.81
     },
     {
         "file": "predictions_K10_gemma3-27b.json",

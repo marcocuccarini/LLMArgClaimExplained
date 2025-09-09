@@ -1,0 +1,3 @@
+directory,file,level,accuracy,f1_score
+5_gpt-oss-20b,predictions_K5_gpt-oss-20b.json,claim,0.6588868940754039,0.6678811055161421
+10_gpt-oss-20b,predictions_K10_gpt-oss-20b.json,claim,0.6797385620915033,0.6902384481012636

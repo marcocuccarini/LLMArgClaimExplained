@@ -1,19 +1,13 @@
 import os
 import json
 import pickle
-import re
-import sys
-from huggingface_hub import hf_hub_download
-import matplotlib.pyplot as plt
-from sklearn.metrics import accuracy_score, f1_score
-import pandas as pd
+import random
 import networkx as nx
+from huggingface_hub import hf_hub_download
 import ollama
-
-# === Add Uncertainpy to path ===
-sys.path.append("src")
-import uncertainpy.gradual as grad
-from uncertainpy.gradual.Argument import Argument
+import src.uncertainpy.gradual as grad
+from src.uncertainpy.gradual import Argument, BAG
+from sklearn.metrics import accuracy_score, f1_score
 
 # === Ollama Inference ===
 def run_ollama_inference(prompt, model, temperature=0.0, max_tokens=512):
@@ -29,109 +23,72 @@ def run_ollama_inference(prompt, model, temperature=0.0, max_tokens=512):
         print(f"Ollama error: {e}")
         return "{}"
 
-
-# === Prompts ===
-CLAIM_EVIDENCE_PROMPT = """
-Task: 
-
+# === Classification Functions (LLM-only) ===
+def classify_claim_evidence(claim, ev_id, ev_text, model_name="llama3.1"):
+    prompt = f"""
+Task:
 Given a claim and one piece of evidence, classify the evidence in relation to the claim.
 Choose exactly one: "support", "attack", "not_related".
 
-
-Instructions:
-
-- Support:  Evidence that backs the claim.
-- Contradict:  Evidence that counters or limits the claim.
-- Irrelevant:  Evidence unrelated to the claim.
-
 Output Format:
-
-Return one label: "support", "contradict", or "irrelevant".
+Return one label: "support", "attack", or "not_related".
 
 Claim:
 {claim}
 
 Evidence:
-{evidence}
+{ev_text}
 """
+    response = run_ollama_inference(prompt, model=model_name).strip().lower()
+    if "support" in response:
+        rel = "support"
+    elif "attack" in response:
+        rel = "attack"
+    else:
+        rel = "not_related"
+    return (ev_id, "Claim", rel)
 
-EVIDENCE_EVIDENCE_PROMPT = """
-Task: 
-
+def classify_evidence_evidence(ev1_id, ev1_text, ev2_id, ev2_text, model_name="llama3.1"):
+    prompt = f"""
+Task:
 Given two pieces of evidence, classify the relation of the first to the second.
 Choose exactly one: "support", "attack", "not_related".
 
-
-Instructions:
-
-- Support:  Evidence that backs the claim.
-- Contradict:  Evidence that counters or limits the claim.
-- Irrelevant:  Evidence unrelated to the claim.
-
 Output Format:
-
-Return one label: "support", "contradict", or "irrelevant".
+Return one label: "support", "attack", or "not_related".
 
 Evidence A:
-{e1}
+{ev1_text}
 
 Evidence B:
-{e2}
+{ev2_text}
 """
-
-
-# === Pairwise classification ===
-def classify_claim_evidence(claim, ev_id, ev_text, model_name="llama3.1"):
-    prompt = CLAIM_EVIDENCE_PROMPT.format(claim=claim, evidence=ev_text)
     response = run_ollama_inference(prompt, model=model_name).strip().lower()
-
     if "support" in response:
         rel = "support"
-    elif "attack" in response or "contradict" in response:
+    elif "attack" in response:
         rel = "attack"
     else:
         rel = "not_related"
-
-    return ("Claim", ev_id, rel)
-
-
-def classify_evidence_evidence(ev1_id, ev1_text, ev2_id, ev2_text, model_name="llama3.1"):
-    prompt = EVIDENCE_EVIDENCE_PROMPT.format(e1=ev1_text, e2=ev2_text)
-    response = run_ollama_inference(prompt, model=model_name).strip().lower()
-
-    if "support" in response:
-        rel = "support"
-    elif "attack" in response or "contradict" in response:
-        rel = "attack"
-    else:
-        rel = "not_related"
-
     return (ev1_id, ev2_id, rel)
 
-
-# === Argumentation Graph Construction ===
-def ArgRAG_pred_divided(relations, arg_dict, arg_model):
+# === Argumentative Graph with BAG Calculation ===
+def ArgRAG_pred_with_calculus(relations, arg_dict):
     if not relations:
         return "use parametric answer", None, {}
 
     G = nx.DiGraph()
-    # Add nodes
     for k, v in arg_dict.items():
         node_type = "claim" if k == "Claim" else "evidence"
-        G.add_node(k, type=node_type, text=v)
+        G.add_node(k, type=node_type, text=v, strength=0.5)
 
-    # Add edges
     for src, tgt, rel in relations:
         if src in arg_dict and tgt in arg_dict:
-            if rel == "support":
-                G.add_edge(src, tgt, relation="support")
-            elif rel == "attack":
-                G.add_edge(src, tgt, relation="attack")
+            G.add_edge(src, tgt, relation=rel)
 
-    # Build BAG
-    bag = grad.BAG()
+    bag = BAG()
     for n in G.nodes:
-        bag.arguments[n] = Argument(n, 0.5)
+        bag.arguments[n] = Argument(n, initial_weight=0.5)
 
     for u, v, d in G.edges(data=True):
         if d["relation"] == "support":
@@ -139,6 +96,7 @@ def ArgRAG_pred_divided(relations, arg_dict, arg_model):
         elif d["relation"] == "attack":
             bag.add_attack(bag.arguments[u], bag.arguments[v])
 
+    arg_model = grad.semantics.ContinuousDFQuADModel()
     arg_model.BAG = bag
     arg_model.approximator = grad.algorithms.RK4(arg_model)
     arg_model.solve(delta=1e-2, epsilon=1e-4)
@@ -146,89 +104,92 @@ def ArgRAG_pred_divided(relations, arg_dict, arg_model):
     strengths = {a.name: a.strength for a in bag.arguments.values()}
     nx.set_node_attributes(G, strengths, "strength")
 
-    return ("true" if strengths["Claim"] >= 0.5 else "false"), G, strengths
+    return ("true" if strengths.get("Claim", 0) >= 0.5 else "false"), G, strengths
 
-
-# === Prediction ===
+# === Prediction Function with LLM-extracted Graph ===
 def run_arg_rag_prediction(claim, contexts, K, model_name="llama3.1"):
     contexts_to_use = contexts[:min(K, len(contexts))]
     arg_dict = {f"E{i+1}": ctx for i, ctx in enumerate(contexts_to_use)}
     arg_dict["Claim"] = claim
 
-    arg_model = grad.semantics.ContinuousDFQuADModel()
-    relations = []
     evidences = [f"E{i+1}" for i in range(len(contexts_to_use))]
+    relations = []
+    llm_predictions = []
 
-    # Claim vs Evidence
+    # Evidence → Claim edges
     for ev in evidences:
-        rel = classify_claim_evidence(claim, ev, arg_dict[ev], model_name)
-        if rel[2] != "not_related":
-            relations.append(rel)
+        src, tgt, rel = classify_claim_evidence(claim, ev, arg_dict[ev], model_name)
+        llm_predictions.append((src, tgt, rel))
+        relations.append((src, tgt, rel))
 
-    # Evidence vs Evidence (directed)
+    # Evidence → Evidence edges
     for i, e1 in enumerate(evidences):
         for j, e2 in enumerate(evidences):
             if i == j:
                 continue
-            rel = classify_evidence_evidence(e1, arg_dict[e1], e2, arg_dict[e2], model_name)
-            if rel[2] != "not_related":
-                relations.append(rel)
+            src, tgt, rel = classify_evidence_evidence(e1, arg_dict[e1], e2, arg_dict[e2], model_name)
+            relations.append((src, tgt, rel))
+            llm_predictions.append((src, tgt, rel))
 
-    pred, G, strengths = ArgRAG_pred_divided(relations, arg_dict, arg_model)
+    # Print all LLM predictions
+    print("\n=== All LLM Predicted Relations ===")
+    for src, tgt, rel in llm_predictions:
+        print(f"{src} → {tgt}: {rel}")
+
+    pred, G, strengths = ArgRAG_pred_with_calculus(relations, arg_dict)
 
     if G is None or len(G.nodes) == 0:
         return "NO_EVIDENCE", {"nodes": None, "edges": None}
 
     graph_json = {
-        "nodes": [
-            {"id": n,
-             "type": G.nodes[n].get("type", "unknown"),
-             "strength": G.nodes[n].get("strength", 0.5),
-             "text": arg_dict[n]}
-            for n in G.nodes
-        ],
-        "edges": [{"source": u, "target": v, "relation": d.get("relation", "unknown")}
-                  for u, v, d in G.edges(data=True)]
+        "nodes": [{"id": n,
+                   "type": G.nodes[n].get("type", "unknown"),
+                   "strength": G.nodes[n].get("strength", 0.0),
+                   "text": G.nodes[n].get("text", arg_dict.get(n, ""))}
+                  for n in G.nodes],
+        "edges": [{"source": u, "target": v, "relation": d.get("relation", "unknown")} for u, v, d in G.edges(data=True)]
     }
-
     return "TRUE" if pred == "true" else "FALSE", graph_json
 
-
-# === Full Experiment ===
+# === Full Experiment Runner with cumulative accuracy ===
 def run_full_experiment(K, model_name, out_dir="results"):
     os.makedirs(out_dir, exist_ok=True)
     preds_file = os.path.join(out_dir, f"predictions_K{K}_{model_name.replace(':','-')}.json")
     graphs_file = os.path.join(out_dir, f"graphs_K{K}_{model_name.replace(':','-')}.json")
 
-    # Load dataset
     file_path = hf_hub_download("Yuqicheng/ArgRAG", "PubHealth.pkl", repo_type="dataset")
     with open(file_path, "rb") as f:
         data = pickle.load(f)
 
-    # Load existing predictions and graphs
     results = json.load(open(preds_file, "r")) if os.path.exists(preds_file) else []
     graphs = json.load(open(graphs_file, "r")) if os.path.exists(graphs_file) else []
 
     completed_indices = {r["index"] for r in results}
+    cumulative_correct = 0
+    cumulative_total = 0
 
     for idx, (claim, contexts, gt) in enumerate(zip(data["claims"], data["contexts"], data["answers"])):
         if idx in completed_indices:
-            print(f"[{idx}] Already generated. Skipping...")
+            # Update cumulative counters based on previous results
+            prev_pred = next(r["prediction"] for r in results if r["index"] == idx)
+            cumulative_total += 1
+            if prev_pred.upper() == gt.strip().upper():
+                cumulative_correct += 1
             continue
 
-        print(f"[{idx}] Generating prediction and graph...")
+        print(f"[{idx}] Generating prediction...")
         prediction, graph_json = run_arg_rag_prediction(claim, contexts, K, model_name)
-
-        # Graph status
         graph_status = "generated" if graph_json["nodes"] is not None else "not_generated"
 
-        graphs.append({
-            "index": idx,
-            "nodes": graph_json["nodes"],
-            "edges": graph_json["edges"],
-            "status": graph_status
-        })
+        # Update cumulative counters
+        cumulative_total += 1
+        if prediction.upper() == gt.strip().upper():
+            cumulative_correct += 1
+        cumulative_accuracy = cumulative_correct / cumulative_total
+        print(f"[{idx}] Prediction: {prediction}, Ground Truth: {gt.strip().upper()}, Cumulative Accuracy: {cumulative_accuracy:.3f}")
 
+        graphs.append({"index": idx, "nodes": graph_json["nodes"], "edges": graph_json["edges"],
+                       "status": graph_status, "cumulative_accuracy": cumulative_accuracy})
         results.append({
             "index": idx,
             "claim": claim,
@@ -237,75 +198,57 @@ def run_full_experiment(K, model_name, out_dir="results"):
             "model": model_name,
             "K": K,
             "graph_status": graph_status,
+            "cumulative_accuracy": cumulative_accuracy,
             "graph": {"nodes": graph_json["nodes"], "edges": graph_json["edges"]}
         })
 
-        # Save immediately
-        with open(preds_file, "w") as f:
-            json.dump(results, f, indent=2)
-        with open(graphs_file, "w") as f:
-            json.dump(graphs, f, indent=2)
+        if idx % 5 == 0:
+            with open(preds_file, "w") as f: json.dump(results, f, indent=2)
+            with open(graphs_file, "w") as f: json.dump(graphs, f, indent=2)
 
-        print(f"[{idx}] Prediction saved: {prediction}, Graph status: {graph_status}")
-
-    # Compute final metrics
+    # Overall metrics
     valid_results = [r for r in results if r["prediction"] in ["TRUE", "FALSE"]]
     y_true = [r["ground_truth"] for r in valid_results]
     y_pred = [r["prediction"] for r in valid_results]
     acc = accuracy_score(y_true, y_pred) if y_true else 0.0
     f1 = f1_score(y_true, y_pred, pos_label="TRUE") if y_true else 0.0
-
-    print(f"\nFinal Predictions saved to {preds_file}")
-    print(f"Final Graphs saved to {graphs_file}")
     print(f"Final Accuracy: {acc:.3f}, F1: {f1:.3f}")
 
     return results, acc, f1, graphs
 
+# === Demo Function ===
+def demo_prompts(model_name="llama3.1"):
+    claim = "Eating an apple a day reduces the risk of heart disease."
+    examples = [
+        "A recent clinical trial found no improvement in heart health from daily apple consumption.",
+        "Some studies show apples have a minimal effect on heart disease risk.",
+        "A 10-year study found daily apple consumption was associated with a 20% lower risk of cardiovascular disease.",
+        "Apples are rich in dietary fiber and antioxidants, which protect the heart.",
+        "Apple trees require cold winters to produce fruit."
+    ]
 
-# === Plotting ===
-def plot_accuracy(summary, output_dir="plots"):
-    os.makedirs(output_dir, exist_ok=True)
-    df = pd.DataFrame(summary)
-    pivot = df.pivot(index="model", columns="K", values="accuracy")
-    pivot.plot(kind="bar", figsize=(8, 5), title="ArgRAG Accuracy")
-    plt.ylabel("Accuracy")
-    plt.ylim(0, 1)
-    plt.legend(title="K")
-    plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, "argRAG_accuracy.png"))
-    plt.close()
-
+    print("\n=== Demo Classification with Strengths ===")
+    prediction, graph_json = run_arg_rag_prediction(claim, examples, K=5, model_name=model_name)
+    print(f"Claim Prediction: {prediction}")
+    print("Graph Nodes and Strengths:")
+    for node in graph_json["nodes"]:
+        print(f"{node['id']}: strength={node.get('strength',0):.2f} → {node['text']}")
 
 # === Main Loop ===
 if __name__ == "__main__":
-    Ks = [5]  # example
-    MODELS = ["gpt-oss:20b"]  # example
+    random.seed(42)
+
+    # Demo
+    demo_prompts("gpt-oss:20b")
+
+    # Full experiment
+    Ks = [5, 10]
+    MODELS = ["gpt-oss:20b"]
     base_dir = "results"
 
     for K in Ks:
         for MODEL in MODELS:
-            safe_model = MODEL.replace(":", "-")  # clean for filenames
-            exp_dir = os.path.join(base_dir, f"{K}_{safe_model}")
+            exp_dir = os.path.join(base_dir, f"{K}_{MODEL.replace(':','-')}")
             os.makedirs(exp_dir, exist_ok=True)
-
             print(f"\nRunning experiment for model={MODEL}, K={K}")
             results, acc, f1, graphs = run_full_experiment(K, MODEL, out_dir=exp_dir)
-
-            # Prepare summary
-            summary = [{"model": MODEL, "K": K, "accuracy": acc, "f1_score": f1}]
-
-            # Save outputs
-            preds_file = os.path.join(exp_dir, "predictions.json")
-            graphs_file = os.path.join(exp_dir, "graphs.json")
-            summary_file = os.path.join(exp_dir, "summary.json")
-
-            with open(preds_file, "w") as f:
-                json.dump(results, f, indent=2)
-            with open(graphs_file, "w") as f:
-                json.dump(graphs, f, indent=2)
-            with open(summary_file, "w") as f:
-                json.dump(summary, f, indent=2)
-
-            print(f"Saved predictions → {preds_file}")
-            print(f"Saved graphs → {graphs_file}")
-            print(f"Saved summary → {summary_file}")

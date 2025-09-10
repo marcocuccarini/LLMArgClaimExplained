@@ -3,10 +3,10 @@ import json
 import pickle
 import re
 from huggingface_hub import hf_hub_download
-from tqdm import tqdm  # Progress bar
+from tqdm import tqdm
 from classes.Ollama import ensure_ollama_model, run_ollama_inference
 from classes.prompt import FACTCHECK_PROMPTS
-
+from sklearn.metrics import accuracy_score
 
 # === Parse predictions ===
 def extract_first_true_false(text):
@@ -21,7 +21,6 @@ def extract_first_true_false(text):
             return "FALSE"
     return None
 
-
 def parse_prediction(answer, prompt_type):
     if not answer:
         return "INVALID"
@@ -30,9 +29,8 @@ def parse_prediction(answer, prompt_type):
         return tf if tf else "INVALID"
     return "INVALID"
 
-
 # === Master summary updater ===
-def update_master_summary(new_summary, master_summary_file="result_baseline/master_summary.json"):
+def update_master_summary(new_summary, master_summary_file="result/master_summary.json"):
     os.makedirs(os.path.dirname(master_summary_file), exist_ok=True)
     if os.path.exists(master_summary_file):
         with open(master_summary_file, "r") as f:
@@ -49,18 +47,15 @@ def update_master_summary(new_summary, master_summary_file="result_baseline/mast
         json.dump(master, f, indent=2)
     print(f"Master summary updated: {master_summary_file}")
 
-
-# === Experiment Runner with progress bar ===
-def run_experiment(K, MODEL, prompt_name, prompt_template, prompt_type, save_dir="result_baseline"):
-    # Make model-safe folder names
+# === Experiment Runner with progress bar and accuracy ===
+def run_experiment(K, MODEL, prompt_name, prompt_template, prompt_type, save_dir="result"):
     model_safe = MODEL.replace(":", "-").replace("/", "-")
     k_dir = f"K{K}"
-
-    # Create nested directory: result_baseline/model/K
     output_dir = os.path.join(save_dir, model_safe, k_dir)
     os.makedirs(output_dir, exist_ok=True)
 
     predictions_file = os.path.join(output_dir, f"predictions_{prompt_name}.json")
+    summary_file = os.path.join(output_dir, "summary.json")
 
     # Load dataset
     file_path = hf_hub_download("Yuqicheng/ArgRAG", "PubHealth.pkl", repo_type="dataset")
@@ -68,16 +63,12 @@ def run_experiment(K, MODEL, prompt_name, prompt_template, prompt_type, save_dir
         data = pickle.load(f)
 
     ensure_ollama_model(MODEL)
-
     results = []
 
-    # tqdm progress bar
     for idx, (claim, contexts, gt) in enumerate(tqdm(zip(data["claims"], data["contexts"], data["answers"]),
                                                      total=len(data["claims"]),
                                                      desc=f"{prompt_name} | {MODEL} | K={K}")):
         cur_contexts = contexts[:min(K, len(contexts))]
-
-        # Run prompt (force only TRUE/FALSE)
         evidence_text = "\n".join(f"- {ctx}" for ctx in cur_contexts)
         prompt = (
             f"Claim: {claim}\n\n"
@@ -85,7 +76,6 @@ def run_experiment(K, MODEL, prompt_name, prompt_template, prompt_type, save_dir
             f"Answer only with 'TRUE' or 'FALSE'."
         )
         answer = run_ollama_inference(prompt, model=MODEL)
-
         pred = parse_prediction(answer, prompt_type)
 
         results.append({
@@ -108,25 +98,27 @@ def run_experiment(K, MODEL, prompt_name, prompt_template, prompt_type, save_dir
     with open(predictions_file, "w") as f:
         json.dump(results, f, indent=2)
 
-    # Save summary (without metrics)
-    summary = [{"prompt": prompt_name, "model": MODEL, "K": K}]
-    summary_file = os.path.join(output_dir, "summary.json")
+    # Compute accuracy
+    y_true = [r["ground_truth"] for r in results if r["prediction"] in ["TRUE", "FALSE"]]
+    y_pred = [r["prediction"] for r in results if r["prediction"] in ["TRUE", "FALSE"]]
+    accuracy = accuracy_score(y_true, y_pred) if y_true else 0.0
+    print(f"Accuracy for {prompt_name} | {MODEL} | K={K}: {accuracy:.2%}")
+
+    # Save summary
+    summary = [{"prompt": prompt_name, "model": MODEL, "K": K, "accuracy": accuracy}]
     with open(summary_file, "w") as f:
         json.dump(summary, f, indent=2)
 
     # Update master summary
     update_master_summary(summary, master_summary_file=os.path.join(save_dir, "master_summary.json"))
 
-    print(f"Finished: {prompt_name} | {MODEL} | K={K}")
-
     return predictions_file, results
-
 
 # === Main Loop ===
 if __name__ == "__main__":
-    Ks = [5]  # Can add more, e.g., [1, 5, 10]
-    MODELS = ["gpt-oss:20b"]  # Can add more models
-    save_dir = "result_baseline"
+    Ks = [5]
+    MODELS = ["gpt-oss:20b"]
+    save_dir = "result"
 
     for K in Ks:
         for MODEL in MODELS:

@@ -1,18 +1,13 @@
 import os
 import json
 import pickle
-import sys
-from huggingface_hub import hf_hub_download
-import matplotlib.pyplot as plt
-from sklearn.metrics import accuracy_score, f1_score
-import pandas as pd
+import random
 import networkx as nx
+from huggingface_hub import hf_hub_download
 import ollama
-
-# === Add Uncertainpy to path ===
-sys.path.append("src")
-import uncertainpy.gradual as grad
-from uncertainpy.gradual.Argument import Argument
+import src.uncertainpy.gradual as grad
+from src.uncertainpy.gradual import Argument, BAG
+from sklearn.metrics import accuracy_score, f1_score
 
 # === Ollama Inference ===
 def run_ollama_inference(prompt, model, temperature=0.0, max_tokens=512):
@@ -28,102 +23,85 @@ def run_ollama_inference(prompt, model, temperature=0.0, max_tokens=512):
         print(f"Ollama error: {e}")
         return "{}"
 
-# === Sample Claim and Evidence Texts ===
-SAMPLE_CLAIM = "A mother revealed to her child in a letter after her death that she had just one eye because she had donated the other to him."
-
-SAMPLE_EVIDENCES = {
-    "E1": "Kastellorizo: crystal carafe with it and brought it to her future mother-in-law...",
-    "E2": "Diane Schuur: Paulo, Rome, Palermo, Guanajuato, and multiple cities across the United States...",
-    "E3": "Janis Babson: that when she died she wanted to donate her eyes to the Eye Bank...",
-    "E4": "Portrait of the Artist's Mother at the Age of 63: After her death her grieving son wrote...",
-    "E5": "The Eye (2002 film): donor. When they ask a village doctor about Ling and her family...",
-    "E6": "Guddu: his dad will not even consider this. Things take a turn for the worse...",
-    "E7": "Nicholas Hughes: literary and biographical writings about her death...",
-    "E8": "Florida Hospital Wauchula: Mays were born within days of each other and were switched...",
-    "E9": "One-Eye, Two-Eyes, and Three-Eyes: unkind than before. One day a Knight came riding along...",
-    "E10": "Ruth Benedict: Because of this, the psychological effects on her childhood were profound..."
-}
-
-# === Sample Relationships Fully Embedded ===
-PAIRWISE_PROMPT_WITH_TEXT_SAMPLE = """
+# === Prompts ===
+CLAIM_EVIDENCE_PROMPT = """
 Task:
+Given a claim and one piece of evidence, classify the evidence in relation to the claim.
+Choose exactly one: "support", "attack", "not_related".
 
-You are given two textual items: Item A and Item B. 
-Your job is to classify the relationship between them. 
-Item A may support, contradict, or be unrelated to Item B.
+Output Format:
+Return one label: "support", "attack", or "not_related".
 
-Use the following sample as a reference:
+Claim:
+{claim}
 
-Claim: {sample_claim}
-
-Evidences and their texts:
-{sample_evidences_texts}
-
-Relationship between evidence and claim: 
-support → E6, E8, E9
-contradict → E3
-irrelevant → E1, E2, E4, E5, E7, E10
-
-Relationship between evidences: 
-support → E6 → E8, E6 → E9
-contradict → E3 → E6
-
-Return exactly one label: "support", "contradict", or "unrelated".
-
-Item A:
-{item_a}
-
-Item B:
-{item_b}
+Evidence:
+{evidence}
 """
 
-# === Pairwise Classification with Sample Guidance ===
-def classify_pair(item_a_id, item_a_text, item_b_id, item_b_text, model_name="llama3.1"):
-    sample_evidences_texts = "\n".join([f"{k}: {v}" for k, v in SAMPLE_EVIDENCES.items()])
-    
-    prompt = PAIRWISE_PROMPT_WITH_TEXT_SAMPLE.format(
-        sample_claim=SAMPLE_CLAIM,
-        sample_evidences_texts=sample_evidences_texts,
-        item_a=item_a_text,
-        item_b=item_b_text
-    )
-    
+EVIDENCE_EVIDENCE_PROMPT = """
+Task:
+Given two pieces of evidence, classify the relation of the first to the second.
+Choose exactly one: "support", "attack", "not_related".
+
+Output Format:
+Return one label: "support", "attack", or "not_related".
+
+Evidence A:
+{e1}
+
+Evidence B:
+{e2}
+"""
+
+# === Classification Functions ===
+def classify_claim_evidence(claim, ev_id, ev_text, model_name="llama3.1"):
+    prompt = CLAIM_EVIDENCE_PROMPT.format(claim=claim, evidence=ev_text)
     response = run_ollama_inference(prompt, model=model_name).strip().lower()
-
-    if "support" in response or "back" in response or "strengthen" in response:
-        relation = "support"
-    elif "contradict" in response or "attack" in response or "challenge" in response:
-        relation = "contradict"
+    if "support" in response:
+        rel = "support"
+    elif "attack" in response:
+        rel = "attack"
     else:
-        relation = "unrelated"
+        rel = random.choices(["not_related", "support", "attack"], weights=[0.7, 0.15, 0.15], k=1)[0]
+    return ("Claim", ev_id, rel)
 
-    return (item_a_id, item_b_id, relation)
+def classify_evidence_evidence(ev1_id, ev1_text, ev2_id, ev2_text, model_name="llama3.1"):
+    prompt = EVIDENCE_EVIDENCE_PROMPT.format(e1=ev1_text, e2=ev2_text)
+    response = run_ollama_inference(prompt, model=model_name).strip().lower()
+    if "support" in response:
+        rel = "support"
+    elif "attack" in response:
+        rel = "attack"
+    else:
+        rel = random.choices(["not_related", "support", "attack"], weights=[0.7, 0.15, 0.15], k=1)[0]
+    return (ev1_id, ev2_id, rel)
 
-# === Argumentation Graph Construction ===
-def ArgRAG_pred_divided(relations, arg_dict, arg_model):
+# === Argumentative Graph with Calculus ===
+def ArgRAG_pred_with_calculus(relations, arg_dict):
     if not relations:
         return "use parametric answer", None, {}
 
     G = nx.DiGraph()
     for k, v in arg_dict.items():
         node_type = "claim" if k == "Claim" else "evidence"
-        G.add_node(k, type=node_type, text=v)
+        G.add_node(k, type=node_type, text=v, strength=0.5)
 
     for src, tgt, rel in relations:
         if src in arg_dict and tgt in arg_dict:
-            if rel in ["support", "contradict"]:
-                G.add_edge(src, tgt, relation=rel)
+            G.add_edge(src, tgt, relation=rel)
 
-    bag = grad.BAG()
+    bag = BAG()
     for n in G.nodes:
-        bag.arguments[n] = Argument(n, 0.5)
+        bag.arguments[n] = Argument(n, initial_weight=0.5)
 
     for u, v, d in G.edges(data=True):
         if d["relation"] == "support":
             bag.add_support(bag.arguments[u], bag.arguments[v])
-        elif d["relation"] == "contradict":
+        elif d["relation"] == "attack":
             bag.add_attack(bag.arguments[u], bag.arguments[v])
 
+    arg_model = grad.semantics.ContinuousDFQuADModel()
     arg_model.BAG = bag
     arg_model.approximator = grad.algorithms.RK4(arg_model)
     arg_model.solve(delta=1e-2, epsilon=1e-4)
@@ -134,76 +112,59 @@ def ArgRAG_pred_divided(relations, arg_dict, arg_model):
     return ("true" if strengths.get("Claim", 0) >= 0.5 else "false"), G, strengths
 
 # === Prediction Function ===
-def run_arg_rag_prediction(claim, contexts, K, model_name="llama3.1", include_claim=False):
+def run_arg_rag_prediction(claim, contexts, K, model_name="llama3.1"):
     contexts_to_use = contexts[:min(K, len(contexts))]
     arg_dict = {f"E{i+1}": ctx for i, ctx in enumerate(contexts_to_use)}
-    if include_claim:
-        arg_dict["Claim"] = claim
+    arg_dict["Claim"] = claim
 
-    arg_model = grad.semantics.ContinuousDFQuADModel()
     relations = []
-    items = list(arg_dict.keys())
+    evidences = [f"E{i+1}" for i in range(len(contexts_to_use))]
 
-    # Pairwise classification for all pairs
-    for i, a in enumerate(items):
-        for j, b in enumerate(items):
-            if i == j:
-                continue
-            rel = classify_pair(a, arg_dict[a], b, arg_dict[b], model_name)
-            if rel[2] != "unrelated":
-                relations.append(rel)
+    for ev in evidences:
+        relations.append(classify_claim_evidence(claim, ev, arg_dict[ev], model_name))
+    for i, e1 in enumerate(evidences):
+        for j, e2 in enumerate(evidences):
+            if i == j: continue
+            relations.append(classify_evidence_evidence(e1, arg_dict[e1], e2, arg_dict[e2], model_name))
 
-    pred, G, strengths = ArgRAG_pred_divided(relations, arg_dict, arg_model)
+    pred, G, strengths = ArgRAG_pred_with_calculus(relations, arg_dict)
 
     if G is None or len(G.nodes) == 0:
         return "NO_EVIDENCE", {"nodes": None, "edges": None}
 
     graph_json = {
-        "nodes": [
-            {"id": n,
-             "type": G.nodes[n].get("type", "unknown"),
-             "strength": G.nodes[n].get("strength", 0.5),
-             "text": arg_dict[n]}
-            for n in G.nodes
-        ],
-        "edges": [{"source": u, "target": v, "relation": d.get("relation", "unknown")}
-                  for u, v, d in G.edges(data=True)]
+        "nodes": [{"id": n,
+                   "type": G.nodes[n].get("type", "unknown"),
+                   "strength": G.nodes[n].get("strength", 0.0),
+                   "text": G.nodes[n].get("text", arg_dict.get(n, ""))}
+                  for n in G.nodes],
+        "edges": [{"source": u, "target": v, "relation": d.get("relation", "unknown")} for u, v, d in G.edges(data=True)]
     }
-
     return "TRUE" if pred == "true" else "FALSE", graph_json
 
-# === Full Experiment ===
-def run_full_experiment(K, model_name, out_dir="results", limit=None, include_claim=False):
+# === Full Experiment Runner ===
+def run_full_experiment(K, model_name, out_dir="results"):
     os.makedirs(out_dir, exist_ok=True)
+    preds_file = os.path.join(out_dir, f"predictions_K{K}_{model_name.replace(':','-')}.json")
+    graphs_file = os.path.join(out_dir, f"graphs_K{K}_{model_name.replace(':','-')}.json")
 
     file_path = hf_hub_download("Yuqicheng/ArgRAG", "PubHealth.pkl", repo_type="dataset")
     with open(file_path, "rb") as f:
         data = pickle.load(f)
 
-    total_examples = len(data["claims"])
-    if limit is not None:
-        limit = min(limit, total_examples)
-    else:
-        limit = total_examples
+    results = json.load(open(preds_file, "r")) if os.path.exists(preds_file) else []
+    graphs = json.load(open(graphs_file, "r")) if os.path.exists(graphs_file) else []
 
-    results, graphs = [], []
+    completed_indices = {r["index"] for r in results}
 
     for idx, (claim, contexts, gt) in enumerate(zip(data["claims"], data["contexts"], data["answers"])):
-        if idx >= limit:
-            break
-
-        print(f"[{idx}] Generating prediction and graph...")
-        prediction, graph_json = run_arg_rag_prediction(claim, contexts, K, model_name, include_claim=include_claim)
-
+        if idx in completed_indices:
+            continue
+        print(f"[{idx}] Generating prediction...")
+        prediction, graph_json = run_arg_rag_prediction(claim, contexts, K, model_name)
         graph_status = "generated" if graph_json["nodes"] is not None else "not_generated"
 
-        graphs.append({
-            "index": idx,
-            "nodes": graph_json["nodes"],
-            "edges": graph_json["edges"],
-            "status": graph_status
-        })
-
+        graphs.append({"index": idx, "nodes": graph_json["nodes"], "edges": graph_json["edges"], "status": graph_status})
         results.append({
             "index": idx,
             "claim": claim,
@@ -215,56 +176,55 @@ def run_full_experiment(K, model_name, out_dir="results", limit=None, include_cl
             "graph": {"nodes": graph_json["nodes"], "edges": graph_json["edges"]}
         })
 
-        print(f"[{idx}] Prediction saved: {prediction}, Graph status: {graph_status}")
+        # Save intermittently
+        if idx % 5 == 0:
+            with open(preds_file, "w") as f: json.dump(results, f, indent=2)
+            with open(graphs_file, "w") as f: json.dump(graphs, f, indent=2)
 
+    # Final save
+    with open(preds_file, "w") as f: json.dump(results, f, indent=2)
+    with open(graphs_file, "w") as f: json.dump(graphs, f, indent=2)
+
+    # Compute metrics
     valid_results = [r for r in results if r["prediction"] in ["TRUE", "FALSE"]]
     y_true = [r["ground_truth"] for r in valid_results]
     y_pred = [r["prediction"] for r in valid_results]
     acc = accuracy_score(y_true, y_pred) if y_true else 0.0
     f1 = f1_score(y_true, y_pred, pos_label="TRUE") if y_true else 0.0
-
-    print(f"\nFinal Accuracy: {acc:.3f}, F1: {f1:.3f}")
+    print(f"Final Accuracy: {acc:.3f}, F1: {f1:.3f}")
 
     return results, acc, f1, graphs
 
-# === Plotting ===
-def plot_accuracy(summary, output_dir="plots"):
-    os.makedirs(output_dir, exist_ok=True)
-    df = pd.DataFrame(summary)
-    pivot = df.pivot(index="model", columns="K", values="accuracy")
-    pivot.plot(kind="bar", figsize=(8, 5), title="ArgRAG Accuracy")
-    plt.ylabel("Accuracy")
-    plt.ylim(0, 1)
-    plt.legend(title="K")
-    plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, "argRAG_accuracy.png"))
-    plt.close()
+# === Demo Function ===
+def demo_prompts(model_name="llama3.1"):
+    claim = "Eating an apple a day reduces the risk of heart disease."
+    examples = [
+        ("E1", "A recent clinical trial found no improvement in heart health from daily apple consumption."),
+        ("E2", "Some studies show apples have a minimal effect on heart disease risk."),
+        ("E3", "A 10-year study found daily apple consumption was associated with a 20% lower risk of cardiovascular disease."),
+        ("E4", "Apples are rich in dietary fiber and antioxidants, which protect the heart."),
+        ("E5", "Apple trees require cold winters to produce fruit."),
+    ]
+
+    print("\n=== Demo Classification with Strengths ===")
+    for ev_id, ev_text in examples:
+        result, graph_json = run_arg_rag_prediction(claim, [ev_text], K=1, model_name=model_name)
+        node = graph_json["nodes"][0] if graph_json["nodes"] else {}
+        print(f"{ev_id}: {result} → strength={node.get('strength', 0):.2f} → {ev_text}")
 
 # === Main Loop ===
 if __name__ == "__main__":
+    random.seed(42)
+
+    
+    # Full experiment
     Ks = [5]
-    MODELS = ["gpt-oss:20b"]
+    MODELS = ["gemma3:27b"]
     base_dir = "results"
-    LIMIT = 3
 
     for K in Ks:
         for MODEL in MODELS:
-            safe_model = MODEL.replace(":", "-")
-            exp_dir = os.path.join(base_dir, f"{K}_{safe_model}")
+            exp_dir = os.path.join(base_dir, f"{K}_{MODEL.replace(':','-')}")
             os.makedirs(exp_dir, exist_ok=True)
-
-            print(f"\nRunning experiment for model={MODEL}, K={K}, limit={LIMIT}")
-
-            results, acc, f1, graphs = run_full_experiment(K, MODEL, out_dir=exp_dir, limit=LIMIT, include_claim=False)
-
-            summary = [{"model": MODEL, "K": K, "accuracy": acc, "f1_score": f1}]
-            with open(os.path.join(exp_dir, "predictions.json"), "w") as f:
-                json.dump(results, f, indent=2)
-            with open(os.path.join(exp_dir, "graphs.json"), "w") as f:
-                json.dump(graphs, f, indent=2)
-            with open(os.path.join(exp_dir, "summary.json"), "w") as f:
-                json.dump(summary, f, indent=2)
-
-            print(f"Saved predictions → {os.path.join(exp_dir, 'predictions.json')}")
-            print(f"Saved graphs → {os.path.join(exp_dir, 'graphs.json')}")
-            print(f"Saved summary → {os.path.join(exp_dir, 'summary.json')}")
+            print(f"\nRunning experiment for model={MODEL}, K={K}")
+            results, acc, f1, graphs = run_full_experiment(K, MODEL, out_dir=exp_dir)

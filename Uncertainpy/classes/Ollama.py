@@ -1,62 +1,56 @@
-import os
-import sys
-import json
-import pickle
-from huggingface_hub import hf_hub_download
-from sklearn.metrics import accuracy_score
-import pandas as pd
-from tqdm import tqdm
 import subprocess
+import json
 import ollama
 
 
-def run_ollama_inference(prompt, model="gemma3:1b", temperature=0.3, max_tokens=64):
+def ensure_ollama_model(model_name: str):
     """
-    Send a prompt to the Ollama model and return the response text.
+    Ensure the Ollama model is available locally.
+    If it's not, attempt to pull it.
     """
     try:
-        response = ollama.chat(
+        # List installed models
+        result = subprocess.run(["ollama", "list", "--json"], capture_output=True, text=True)
+        if result.returncode == 0:
+            try:
+                installed = json.loads(result.stdout)
+            except json.JSONDecodeError:
+                installed = []
+
+            model_names = [m["name"] for m in installed]
+            if model_name in model_names:
+                print(f"Model '{model_name}' is already present.")
+                return
+
+        print(f"Pulling model '{model_name}' ...")
+        pull_result = subprocess.run(["ollama", "pull", model_name])
+        if pull_result.returncode != 0:
+            print(f"⚠️ Failed to pull model '{model_name}'")
+    except Exception as e:
+        print(f"⚠️ ensure_ollama_model error: {e}")
+
+
+def run_ollama_inference(prompt: str, model: str) -> str:
+    """
+    Run inference using Ollama. 
+    Tries both chat and generate APIs.
+    Always returns a string (may be empty).
+    """
+    try:
+        # Try chat API first
+        res = ollama.chat(
             model=model,
-            messages=[{"role": "user", "content": prompt}],
-            options={"temperature": temperature, "num_predict": max_tokens}
+            messages=[{"role": "user", "content": prompt}]
         )
-        return response["message"]["content"].strip()
+        if res and "message" in res and "content" in res["message"]:
+            return res["message"]["content"].strip()
+
+        # Fallback: try generate API
+        res = ollama.generate(model=model, prompt=prompt)
+        if res and "response" in res:
+            return res["response"].strip()
+
+        return ""  # nothing usable
     except Exception as e:
-        print(f"Error in Ollama inference: {e}")
+        print(f"⚠️ Ollama inference error: {e}")
         return ""
-
-
-def ensure_ollama_model(model_name):
-    """
-    Checks if the Ollama model is present locally. If not, downloads it.
-    """
-    try:
-        result = subprocess.run(
-            ["ollama", "list"],
-            capture_output=True,
-            text=True,
-            check=True
-        )
-        models = [line.split()[0] for line in result.stdout.strip().split('\n')[1:] if line]
-        if model_name not in models:
-            print(f"Model '{model_name}' not found locally. Downloading...")
-            pull_result = subprocess.run(
-                ["ollama", "pull", model_name],
-                capture_output=True,
-                text=True
-            )
-            if pull_result.returncode != 0:
-                print(f"Failed to download model '{model_name}'. Error:\n{pull_result.stderr}")
-                sys.exit(1)
-            print(f"Model '{model_name}' downloaded successfully.")
-        else:
-            print(f"Model '{model_name}' is already present.")
-    except FileNotFoundError:
-        print("Ollama CLI not found. Please install Ollama and ensure it is in your PATH.")
-        sys.exit(1)
-    except Exception as e:
-        print(f"Error checking/downloading Ollama model: {e}")
-        sys.exit(1)
-
-
-
